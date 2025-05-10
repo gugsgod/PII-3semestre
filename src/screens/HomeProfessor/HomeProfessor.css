@@ -1,0 +1,16 @@
+.home-background {
+  background: url('../../assets/bg-pattern.png'); /* fundo igual ao Figma */
+  background-size: cover;
+  padding: 40px;
+  min-height: calc(100vh - 60px); /* deixa espaço pra navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
