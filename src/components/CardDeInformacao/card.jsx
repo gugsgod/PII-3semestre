@@ -1,4 +1,4 @@
-import 'gamificacao-site/src/components/CardDeInformacao/card.css';
+import './card.css';
 
 function Card({ icon, label }) {
   return (

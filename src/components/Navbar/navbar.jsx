@@ -1,6 +1,6 @@
-import 'gamificacao-site/src/components/Navbar/navbar.css';
-import logo from 'gamificacao-site/src/assets/logo_poliedro.png'; 
-import avatar from 'gamificacao-site/src/assets/avatar_professor.png';
+import './navbar.css';
+import logo from '../../assets/logo_poliedro.png';
+import avatar from '../../assets/avatar_professor.png';
 
 function Navbar() {
   return (

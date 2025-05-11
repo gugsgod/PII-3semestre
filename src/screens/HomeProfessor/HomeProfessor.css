@@ -1,5 +1,5 @@
 .home-background {
-  background: url('../../assets/bg-pattern.png'); /* fundo igual ao Figma */
+  background: url('../../assets/fundo_telas_poliedro.jpeg');
   background-size: cover;
   padding: 40px;
   min-height: calc(100vh - 60px); /* deixa espaço pra navbar */

@@ -16,7 +16,7 @@ function HomeProfessor() {
         <div>
             <h1>Bem-vindo, {tipo === 'professor' ? 'Professor' : 'Usuário'}!</h1>
 
-            {/* Aqui você pode colocar conteúdo específico para professor */}
+            {/* Ahyfuyfufu */}
             <p>Essa é a área exclusiva para professores.</p>
         </div>
     );
