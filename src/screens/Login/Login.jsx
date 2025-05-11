@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import logo from '../../assets/logo_poliedro_extenso.png';
 
 function Login() {
   const navigate = useNavigate();
@@ -26,30 +28,34 @@ function Login() {
       navigate('/aluno');
       return;
     }
-    //se nenhuma das condiçoes acima foi atendida
+
     alert('E-mail ou senha inválidos');
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
-        <input
-          type="email"
-          placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Digite sua senha"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-        />
-        <button type="submit">Entrar</button>
-      </form>
+    <div className="login-page">
+      <div className="login-box">
+        <img src={logo} alt="Poliedro Educação" className="login-logo" />
+        <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <button type="submit">Login</button>
+        </form>
+        <a href="/" className="forgot-link">Esqueceu a senha?</a>
+      </div>
     </div>
   );
 }
 
 export default Login;
+

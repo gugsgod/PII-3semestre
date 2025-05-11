@@ -1,0 +1,62 @@
+.login-page {
+  background: url('../../assets/fundo_telas_poliedro.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.login-logo {
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+button {
+  padding: 14px;
+  font-size: 16px;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #274bb3;
+}
+
+.forgot-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #1e74f7;
+  text-decoration: none;
+}
