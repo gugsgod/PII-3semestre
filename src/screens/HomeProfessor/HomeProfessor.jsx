@@ -23,7 +23,7 @@ function HomeProfessor() {
 
   return (
     <>
-      <Navbar />
+      <Navbar usuario="Olá, Professor"/>
       <div className="home-background">
         <div className="card-grid">
           <Card icon={icon1} label="Atribuir pontos" />
