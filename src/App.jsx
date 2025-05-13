@@ -4,7 +4,9 @@ import Login from './screens/Login/Login';
 import HomeProfessor from './screens/HomeProfessor/HomeProfessor';
 import HomeAluno from './screens/HomeAluno/HomeAluno';
 import HomeCoordenacao from './screens/HomeCoordenacao/HomeCoordenacao';
+import AdicionarPessoas from "./screens/HomeCoordenacao/AdicionarPessoas/AdicionarPessoas"
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
+
 
 function App() {
   return (
@@ -40,6 +42,14 @@ function App() {
           element={
             <RotaPrivada tipoEsperado="coordenacao">
               <HomeCoordenacao />
+            </RotaPrivada>
+          }
+        />
+        <Route
+          path="/AdicionarPessoas"
+          element={
+            <RotaPrivada tipoEsperado="adicionar_pessoa">
+              <AdicionarPessoas/>
             </RotaPrivada>
           }
         />
