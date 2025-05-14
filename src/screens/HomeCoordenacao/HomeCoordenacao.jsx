@@ -26,7 +26,7 @@ function HomeProfessor() {
             <Navbar usuario="Olá, Coordenação"/>
             <div className='home-background'>
                 <div className='card-grid'>
-                    <Card icon={icon1} label={"Adicionar Pessoa"} onClick={() => navigate("../HomeCoordenacao/AdicionarPessoas/AdicionarPessoas.jsx")}/>
+                    <Card icon={icon1} label={"Adicionar Pessoa"} onClick={() => navigate("/AdicionarPessoas")}/>
                     <Card icon={icon2} label={"Gerenciar Turmas"}/>
                 </div>
             </div>

@@ -7,7 +7,6 @@ import HomeCoordenacao from './screens/HomeCoordenacao/HomeCoordenacao';
 import AdicionarPessoas from "./screens/HomeCoordenacao/AdicionarPessoas/AdicionarPessoas"
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
 
-
 function App() {
   return (
     <Router>
@@ -48,7 +47,7 @@ function App() {
         <Route
           path="/AdicionarPessoas"
           element={
-            <RotaPrivada tipoEsperado="adicionar_pessoa">
+            <RotaPrivada tipoEsperado="coordenacao">
               <AdicionarPessoas/>
             </RotaPrivada>
           }
