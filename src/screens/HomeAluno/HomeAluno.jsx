@@ -1,7 +1,16 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function HomeProfessor() {
+import Navbar from "../../components/Navbar/navbar"
+import Card from '../../components/CardDeInformacao/card';
+
+import icon1 from "../../assets/Atividadedes_icone.png"
+import icon2 from "../../assets/ranking.png"
+import icon3 from "../../assets/relatorio_icone.png"
+
+import "./HomeAluno.css"
+
+function HomeAluno() {
     const navigate = useNavigate();
     const tipo = localStorage.getItem('tipoUsuario');
 
@@ -14,12 +23,16 @@ function HomeProfessor() {
 
     return (
         <div>
-            <h1>Bem-vindo, {tipo === 'professor' ? 'Professor' : 'Usuário'}!</h1>
-
-            {/* jyguguugu*/}
-            <p>Essa é a área exclusiva para professores.</p>
+            <Navbar usuario="Olá, Aluno"/>
+            <div className='aluno-background'>
+                <div className='card-grid'>
+                    <Card icon={icon1} label="Meu pontos e atividades"/>
+                    <Card icon={icon2} label="Ranking"/>
+                    <Card icon={icon3} label="Meu relatorio"/>
+                </div>
+            </div>
         </div>
     );
 }
 
-export default HomeProfessor;
+export default HomeAluno;
