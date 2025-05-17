@@ -9,7 +9,6 @@ import "./HomeCoordenacao.css"
 import icon1 from '../../assets/atribuir_turmas.png'
 import icon2 from '../../assets/atribuir_turmas.png'
 
-
 function HomeProfessor() {
     const navigate = useNavigate();
     const tipo = localStorage.getItem('tipoUsuario');
