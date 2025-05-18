@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import Tabela from "../../../components/Tabela/Tabela";
 
-import icon from "../../../assets/excluir.png"
-
 import "./GerenciarPessoas.css"
 
 const GerenciarPessoas = () => {
