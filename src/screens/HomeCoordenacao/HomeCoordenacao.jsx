@@ -26,7 +26,7 @@ function HomeProfessor() {
             <div className='home-background'>
                 <div className='card-grid'>
                     <Card icon={icon1} label={"Adicionar Pessoa"} onClick={() => navigate("/AdicionarPessoas")}/>
-                    <Card icon={icon2} label={"Gerenciar Turmas"}/>
+                    <Card icon={icon2} label={"Gerenciar Turmas"} onClick={() => navigate("/GerenciarPessoas")}/>
                 </div>
             </div>
             {/* <h1>Bem-vindo, {tipo === 'coordenacao' ? 'coordenacao' : 'Usuário'}!</h1> */}
