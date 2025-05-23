@@ -5,6 +5,8 @@ import Tabela from "../../../components/Tabela/Tabela";
 
 import "./GerenciarPessoas.css"
 
+import Titulo from "../../../components/Navbar/Titulo";
+
 const GerenciarPessoas = () => {
 
     const navigate = useNavigate()
@@ -16,14 +18,24 @@ const GerenciarPessoas = () => {
         }
     }, [tipo, navigate])
 
+    useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
     return (
-        <div className="gerenciar-page">
-            <div className="flex justify-center gap-10">
-                <div className=" ">
-                    <Tabela titulo="Alunos Cadastrados"/>
-                </div>
-                <div className="">
-                    <Tabela titulo="Professores Cadastrados"/>
+        <div className="overflow-hidden">
+            <Titulo titulo="Pessoas cadastradas"/>
+            <div className="gerenciar-page">
+                <div className="flex justify-center gap-10">
+                    <div className="overflow-x-auto">
+                        <Tabela titulo="Alunos Cadastrados"/>
+                    </div>
+                    <div className="overflow-x-auto">
+                        <Tabela titulo="Professores Cadastrados"/>
+                    </div>
                 </div>
             </div>
         </div>

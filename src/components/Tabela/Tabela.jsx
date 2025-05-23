@@ -4,14 +4,14 @@ const Tabela = (props) => {
     return (
 
         // Fundo
-        <div className="w-full max-w-xl bg-white rouded-3xl ">
+        <div className="w-full max-w-xl bg-white rounded-3xl ">
 
             {/* Titulo */}
             <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
                 <h1 className="text-3xl text-gray-700 text-center">{props.titulo}</h1>
             </div>
 
-            <div className="px-6 py-6 space-y-4">
+            <div className="px-6 py-6 space-y-4 max-h-64 overflow-auto">
                 <table className="min-w-full table-auto">
                     
                     <tbody>
