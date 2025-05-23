@@ -14,6 +14,13 @@ const Ranking = () => {
         }
     }, [tipo, navigate])
 
+    useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
     return (
         <div className="">
             <div className="flex justify-end items-end p-3">

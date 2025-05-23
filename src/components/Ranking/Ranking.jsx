@@ -13,7 +13,7 @@ const Ranking = () => {
             </div>
 
             {/* Tabela */}
-            <div className="">
+            <div className="overflow-x-auto min-h-64">
                 <table className="min-w-full table-auto">
                     
                     <tbody className="text-center text-xl">
