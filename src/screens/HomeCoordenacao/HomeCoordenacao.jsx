@@ -6,7 +6,7 @@ import Card from '../../components/CardDeInformacao/card';
 
 import "./HomeCoordenacao.css"
 
-import icon1 from '../../assets/atribuir_turmas.png'
+import icon1 from '../../assets/icone-adicionar-pessoas.png'
 import icon2 from '../../assets/atribuir_turmas.png'
 
 function HomeProfessor() {
@@ -25,7 +25,7 @@ function HomeProfessor() {
             <Navbar usuario="Olá, Coordenação"/>
             <div className='home-background'>
                 <div className='card-grid'>
-                    <Card icon={icon1} label={"Adicionar Pessoa"} onClick={() => navigate("/AdicionarPessoas")} size="large"/>
+                    <Card icon={icon1} label={"Adicionar Pessoas"} onClick={() => navigate("/AdicionarPessoas")} size="large"/>
                     <Card icon={icon2} label={"Gerenciar Turmas"} onClick={() => navigate("/GerenciarPessoas")} size="large"/>
                 </div>
             </div>

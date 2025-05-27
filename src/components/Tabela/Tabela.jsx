@@ -16,15 +16,15 @@ const Tabela = (props) => {
                     
                     <tbody>
                         <tr className="hover:bg-gray-50">
-                            <td className="px-4 py-2 border-b">Caio Onha Ferreira</td>
+                            <td className="px-4 py-2 border-b">{props.atividade}</td>
                             <td className="px-4 py-2 border-b"><button className="rounded-3xl hover:bg-red-500 bg-white"><img src={icon} alt="" className="w-10"/></button></td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                            <td className="px-4 py-2 border-b">Nicole Silva Mascaretti</td>
+                            <td className="px-4 py-2 border-b">{props.atividade}</td>
                             <td className="px-4 py-2 border-b"><button className="rounded-3xl bg-white hover:bg-red-500"><img src={icon} alt="" className="w-10"/></button></td>
                         </tr>
                         <tr className="hover:bg-gray-50">
-                            <td className="px-4 py-2 border-b">Gustavo Bomfim</td>
+                            <td className="px-4 py-2 border-b">{props.atividade}</td>
                             <td className="px-4 py-2 border-b"><button className="rounded-3xl bg-white hover:bg-red-500"><img src={icon} alt="" className="w-10"/></button></td>
                         </tr>
                     </tbody>

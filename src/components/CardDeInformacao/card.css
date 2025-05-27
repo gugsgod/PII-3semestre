@@ -25,6 +25,11 @@
   font-size: 14px;
 }
 
+.card.mini {
+  width: 120px;
+  height: 120px;
+}
+
 .card.small {
   width: 180px;
   height: 180px;
