@@ -9,6 +9,7 @@ import GerenciarPessoas from "./screens/HomeCoordenacao/GerenciarPessoas/Gerenci
 import Ranking from './screens/HomeProfessor/Ranking/Ranking';
 import GerenciarTurmas from './screens/HomeProfessor/GerenciarTurmas/GerenciarTurmas';
 import AtribuirPontos from './screens/HomeProfessor/AtribuirPontos/AtribuirPontos';
+import CategoriaPontuacao from './screens/HomeProfessor/CategoriasPontuacao/CategoriaPontuacao'
 
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
 
@@ -89,14 +90,14 @@ function App() {
             </RotaPrivada>
           }
         />
-        {/* <Route
+        <Route
           path='/CategoriasPontuacao'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <CategoriasPontuacao/>
+              <CategoriaPontuacao/>
             </RotaPrivada>
           }
-        /> */}
+        />
       </Routes>
     </Router>
   );
