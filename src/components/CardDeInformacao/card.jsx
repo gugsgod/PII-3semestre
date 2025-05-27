@@ -1,8 +1,8 @@
 import './card.css';
 
-function Card({ icon, label, onClick }) {
+function Card({ icon, label, onClick, size = "medium" }) {
   return (
-    <div className="card" onClick={onClick}>
+    <div className={`card ${size}`} onClick={onClick}>
       <img src={icon} alt={label} className="card-icon w-full" />
       <p>{label}</p>
     </div>

@@ -2,8 +2,8 @@
   background: white;
   border-radius: 20px;
   padding: 20px;
-  width: 160px;
   text-align: center;
+  align-items: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
@@ -14,13 +14,29 @@
 }
 
 .card-icon {
-  height: 60px;
-  margin-bottom: 10px;
+  width: 90%;
+  height: auto;
+  margin: 10px;;
 }
 
 .card p {
   color: #002366;
   font-weight: 500;
   font-size: 14px;
+}
+
+.card.small {
+  width: 180px;
+  height: 180px;
+}
+
+.card.medium {
+  width: 260px;
+  height: 260px;
+}
+
+.card.large {
+  width: 340px;
+  height: 340px;
 }
 
