@@ -10,6 +10,7 @@ import Ranking from './screens/HomeProfessor/Ranking/Ranking';
 import GerenciarTurmas from './screens/HomeProfessor/GerenciarTurmas/GerenciarTurmas';
 import AtribuirPontos from './screens/HomeProfessor/AtribuirPontos/AtribuirPontos';
 import CategoriaPontuacao from './screens/HomeProfessor/CategoriasPontuacao/CategoriaPontuacao'
+import TelaInicialAtribuirPontos from './screens/HomeProfessor/AtribuirPontos/TelaInicialAtribuirPontos';
 
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
 
@@ -95,6 +96,14 @@ function App() {
           element={
             <RotaPrivada tipoEsperado={"professor"}>
               <CategoriaPontuacao/>
+            </RotaPrivada>
+          }
+        />
+        <Route
+          path='/TelaInicialAtribuirPontos'
+          element={
+            <RotaPrivada tipoEsperado={"professor"}>
+              <TelaInicialAtribuirPontos/>
             </RotaPrivada>
           }
         />
