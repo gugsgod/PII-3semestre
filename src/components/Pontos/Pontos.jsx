@@ -12,9 +12,9 @@ const Pontos = (props) => {
             </button>
 
             {isOpen && (
-                <div className="absolute top-0 left-0 w-full h-full bg-transparent bg-opacity-50 flex items-center justify-center">
+                <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
                     
-                    <div className="w-full max-w-xl bg-white rounded-3xl p-6">
+                    <div className="w-full max-w-3xl h-[600px] bg-white rounded-3xl">
 
                         {/* Titulo */}
                         <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
