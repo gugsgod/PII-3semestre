@@ -89,6 +89,14 @@ function App() {
             </RotaPrivada>
           }
         />
+        {/* <Route
+          path='/CategoriasPontuacao'
+          element={
+            <RotaPrivada tipoEsperado={"professor"}>
+              <CategoriasPontuacao/>
+            </RotaPrivada>
+          }
+        /> */}
       </Routes>
     </Router>
   );

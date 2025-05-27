@@ -28,7 +28,7 @@ function HomeProfessor() {
         <div className="card-grid">
           <Card icon={icon1} label="Atribuir pontos" onClick={() => navigate("/AtribuirPontos")}/>
           <Card icon={icon2} label="Ranking" onClick={() => navigate("/Ranking")}/>
-          <Card icon={icon3} label="Editar categorias de pontuação" />
+          <Card icon={icon3} label="Editar categorias de pontuação" onClick={() => navigate("/CategoriasPontuacao")}/>
           <Card icon={icon4} label="Gerenciar turmas" onClick={() => navigate("/GerenciarTurmas")}/>
         </div>
       </div>
