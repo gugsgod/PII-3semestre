@@ -26,9 +26,9 @@ function HomeAluno() {
             <Navbar usuario="Olá, Aluno"/>
             <div className='aluno-background'>
                 <div className='card-grid'>
-                    <Card icon={icon1} label="Meu pontos e atividades"/>
-                    <Card icon={icon2} label="Ranking"/>
-                    <Card icon={icon3} label="Meu relatorio"/>
+                    <Card icon={icon1} label="Meu pontos e atividades" size="medium"/>
+                    <Card icon={icon2} label="Ranking" size="medium"/>
+                    <Card icon={icon3} label="Meu relatorio" size="medium"/>
                 </div>
             </div>
         </div>

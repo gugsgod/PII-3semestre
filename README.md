@@ -1,6 +1,6 @@
 # 🏫 Sistema Poliedro
 
-Sistema web para gerenciar as atividades dos alunos, voltado para uso interno da equipe pedagógica e administrativa de uma escola.
+Sistema web para gerenciar as atividades dos alunos, voltado para uso interno da equipe pedagógica e administrativa da escola.
 
 ## 🎯 Objetivo
 
@@ -32,4 +32,5 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 npm install
 npm run dev
+
 
