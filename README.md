@@ -4,7 +4,19 @@ Sistema web para gerenciar as atividades dos alunos, voltado para uso interno da
 
 ## 🎯 Objetivo
 
-O Sistema Poliedro tem como objetivo facilitar o controle e a organização de dados acadêmicos, permitindo que coordenação, professores e alunos interajam com o sistema de forma personalizada, conforme seu tipo de acesso.
+O Sistema Poliedro tem como objetivo gamificar o controle e a organização de dados acadêmicos (atividades, comportamento em sala, etc), permitindo que coordenação, professores e alunos interajam com o sistema de forma personalizada, conforme seu tipo de acesso.
+
+## 👨‍💻 Desenvolvedores: 
+
+| Nome          | GitHub                                                          |
+| ------------- | --------------------------------------------------------------- |
+| \[Caio Onha] | [@Caio1918](https://github.com/Caio1918)                         |
+| \[Gustavo Bomfim] | [@gugsgod](https://github.com/gugsgod)                      |
+| \[Gustavo Versolatto] | [@GVersolatto](https://github.com/GVersolatto)          |
+| \[Nicole Mascaretti] | [@NicoleMascaretti](https://github.com/NicoleMascaretti) |
+| \[Nicholas Carmona] | [@seunome4](https://github.com/seunome4)                  |
+| \[Pietro Maffessoni] | [PietroMaffessoni](https://github.com/PietroMaffessoni)  |
+
 
 ## 🚀 Funcionalidades
 
