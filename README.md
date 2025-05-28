@@ -8,14 +8,14 @@ O Sistema Poliedro tem como objetivo gamificar o controle e a organização de d
 
 ## 👨‍💻 Desenvolvedores: 
 
-| Nome          | GitHub                                                          |
-| ------------- | --------------------------------------------------------------- |
-| \[Caio Onha] | [@Caio1918](https://github.com/Caio1918)                         |
-| \[Gustavo Bomfim] | [@gugsgod](https://github.com/gugsgod)                      |
-| \[Gustavo Versolatto] | [@GVersolatto](https://github.com/GVersolatto)          |
-| \[Nicole Mascaretti] | [@NicoleMascaretti](https://github.com/NicoleMascaretti) |
-| \[Nicholas Carmona] | [@seunome4](https://github.com/seunome4)                  |
-| \[Pietro Maffessoni] | [PietroMaffessoni](https://github.com/PietroMaffessoni)  |
+| Nome          | GitHub                                                        |
+| ------------- | --------------------------------------------------------------|
+| \Caio Onha | [@Caio1918](https://github.com/Caio1918)                         |
+| \Gustavo Bomfim | [@gugsgod](https://github.com/gugsgod)                      |
+| \Gustavo Versolatto | [@GVersolatto](https://github.com/GVersolatto)          |
+| \Nicole Mascaretti | [@NicoleMascaretti](https://github.com/NicoleMascaretti) |
+| \Nicholas Carmona | [@nicholascarmona](https://github.com/seunome4)           |
+| \Pietro Maffessoni | [PietroMaffessoni](https://github.com/PietroMaffessoni)  |
 
 
 ## 🚀 Funcionalidades
