@@ -1,6 +1,6 @@
 # 🏫 Sistema Poliedro
 
-Sistema web para gerenciar as atividades dos alunos, voltado para uso interno da equipe pedagógica e administrativa da escola.
+Sistema web para gerenciar as atividades dos alunos, voltado para uso interno da equipe pedagógica e administrativa da escola Poliedro.
 
 ## 🎯 Objetivo
 
@@ -21,7 +21,7 @@ O Sistema Poliedro tem como objetivo gamificar o controle e a organização de d
 ## 🚀 Funcionalidades
 
 - Login com validação por tipo de usuário (aluno, professor ou coordenação)
-- Cadastro de pessoas (alunos, professores, etc.)
+- Cadastro de pessoas (alunos e professores)
 - Gerenciamento de turmas
 - Gerenciamento de atividades
 - Visualização de dados
