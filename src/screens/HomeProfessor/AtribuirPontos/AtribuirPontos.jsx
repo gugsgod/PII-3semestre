@@ -31,7 +31,7 @@ const AtribuirPontos = () => {
         <div>
             <Titulo titulo="Atribuir pontos" />
 
-            <div className="flex flex-col items-center justify-center h-screen gap-5 p-10 border-black overflow-y-scroll mt-10 mb-10">
+            <div className="flex flex-col items-center justify-center h-screen gap-5 p-10 border-black overflow-scroll mt-10 mb-10">
                 <Pontos atividade="Atividade 1 - História"/>
                 <Pontos atividade="Atividade 2 - Matemática"/>
                 <Pontos atividade="Atividade 3 - Ciências"/>
