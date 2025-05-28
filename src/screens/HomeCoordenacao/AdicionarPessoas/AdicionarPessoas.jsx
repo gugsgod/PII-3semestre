@@ -78,8 +78,9 @@ function AdicionarPessoas() {
           )}
 
           <div>
-            <label className="block text-sm text-gray-700">Nome</label>
+            <label htmlFor="nome" className="block text-sm text-gray-700">Nome</label>
             <input
+              id="nome"
               type="text"
               className="w-full border border-gray-300 rounded-xl px-4 py-2"
               value={nome}
@@ -87,8 +88,9 @@ function AdicionarPessoas() {
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-sm text-gray-700">Email</label>
             <input
+              id="email"
               type="email"
               className="w-full border border-gray-300 rounded-xl px-4 py-2"
               value={email}

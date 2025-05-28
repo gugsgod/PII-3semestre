@@ -20,17 +20,47 @@ O Sistema Poliedro tem como objetivo facilitar o controle e a organização de d
 - [React](https://reactjs.org/)
 - React Router DOM
 - CSS Modules
+- [Vitest](https://vitest.dev/) (testes automatizados)
+- [Testing Library](https://testing-library.com/) (testes de interface)
 
 ### Back-end
 - [Go (Golang)](https://golang.org/)
 - MySQL
 
-## Como rodar
+## 💡 Testes Automatizados
+
+Aplicamos os princípios de **TDD (Test-Driven Development)** nas funcionalidades de login e cadastro.
+
+### Funcionalidades testadas:
+
+- Cadastro com dados válidos
+- Impedimento de cadastro com e-mail já existente
+- Login com credenciais válidas
+- Falha de login com dados inválidos
+- Validação de campos obrigatórios
+
+### Como rodar os testes
+
+```bash
+npm install
+npx vitest
+
+### As funcionalidades testadas estão localizadas na pasta
+src/tests/
+├── AdicionarPessoas.test.jsx
+├── Login.test.jsx
+
+```
+
+### Como rodar o projeto
 
 ```bash
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 npm install
 npm run dev
+```
+
+
 
 
