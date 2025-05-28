@@ -55,8 +55,8 @@ src/tests/
 ### Como rodar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/gugsgod/PII-3semestre.git
+cd gamificacao-app ##o nome da pasta que você clonou o projeto
 npm install
 npm run dev
 ```
