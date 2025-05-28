@@ -14,7 +14,7 @@ O Sistema Poliedro tem como objetivo gamificar o controle e a organização de d
 | Gustavo Bomfim | [@gugsgod](https://github.com/gugsgod)                      |
 | Gustavo Versolatto | [@GVersolatto](https://github.com/GVersolatto)          |
 | Nicole Mascaretti | [@NicoleMascaretti](https://github.com/NicoleMascaretti) |
-| Nicholas Carmona | [@nicholascarmona](https://github.com/seunome4)           |
+| Nicholas Carmona | [@Nicholasdcc](https://github.com/Nicholasdcc)            |
 | Pietro Maffessoni | [@PietroMaffessoni](https://github.com/PietroMaffessoni)  |
 
 
