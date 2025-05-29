@@ -4,7 +4,7 @@ import Titulo from "../../../components/Navbar/Titulo";
 import Card from "../../../components/CardDeInformacao/card";
 import Tabela from "../../../components/Tabela/Tabela";
 
-import icon1 from "../../../assets/mais.png";
+import icon1 from "../../../assets/add.png";
 
 import "./CategoriaPontuacao.css"
 
@@ -30,7 +30,7 @@ const CategoriaPontuacao = () => {
         <Titulo titulo="Editar Categorias de Pontuação"/>
         <div className="categoria-background">
             <div className="flex items-center justify-center w-full gap-24">
-                <Card icon={icon1} size="small" label="Criar atividade"/>
+                <Card icon={icon1} size="medium" label="Criar atividade"/>
                 <Tabela titulo="Atividades existentes" atividade="Atividade 1 - Historia"/>
             </div>
         </div>
