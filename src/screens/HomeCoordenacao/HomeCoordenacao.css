@@ -1,4 +1,4 @@
-.home-background {
+.coordenacao-background {
     position: relative;
     padding: 40px;
     min-height: calc(100vh - 80px);
@@ -8,13 +8,14 @@
     z-index: 0;
 }
 
-.home-background::before {
+.coordenacao-background::before {
     content: "";
     position: absolute;
     inset: 0;
     background: url("../../assets/fundo_telas_poliedro.jpeg");
-    opacity: 0.4;
+    opacity: 0.3;
     z-index: -1;
+    pointer-events: none;
 }
 
 .card-grid {

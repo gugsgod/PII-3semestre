@@ -24,7 +24,7 @@ function HomeProfessor() {
   return (
     <>
       <Navbar usuario="Olá, Professor"/>
-      <div className="home-background">
+      <div className="professor-background">
         <div className="card-grid">
           <Card icon={icon1} label="Atribuir pontos" onClick={() => navigate("/TelaInicialAtribuirPontos")} size="small"/>
           <Card icon={icon2} label="Ranking" onClick={() => navigate("/Ranking")} size="small"/>
