@@ -31,7 +31,7 @@ const CategoriaPontuacao = () => {
         <div className="categoria-background">
             <div className="flex items-center justify-center w-full gap-24">
                 <Card icon={icon1} size="categorias" label="Criar atividade"/>
-                <Tabela titulo="Atividades existentes" atividade="Atividade - Historia"/>
+                <Tabela titulo="Atividades existentes" atividade="Atividade 1 - Historia"/>
             </div>
         </div>
     </div>
