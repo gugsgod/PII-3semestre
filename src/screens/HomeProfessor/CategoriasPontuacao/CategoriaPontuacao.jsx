@@ -30,7 +30,7 @@ const CategoriaPontuacao = () => {
         <Titulo titulo="Editar Categorias de Pontuação"/>
         <div className="categoria-background">
             <div className="flex items-center justify-center w-full gap-24">
-                <Card icon={icon1} size="medium" label="Criar atividade"/>
+                <Card icon={icon1} size="categorias" label="Criar atividade"/>
                 <Tabela titulo="Atividades existentes" atividade="Atividade 1 - Historia"/>
             </div>
         </div>
