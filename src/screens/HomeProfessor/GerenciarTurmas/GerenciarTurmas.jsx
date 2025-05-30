@@ -27,11 +27,11 @@ const GerenciarTurmas = () => {
 
       <div className='flex flex-col items-center justify-center h-screen gap-5 p-10 border-black overflow-y-scroll'>
 
-        <Turma turma="1° Ensino Médio"/>
-        <Turma turma="2° Ensino Médio"/>
-        <Turma turma="3° Ensino Médio"/>
-        <Turma turma="9° Ano"/>
-        <Turma turma="8° Ano"/>
+        <Turma turma="1° Ensino Médio" onClick={() => navigate('/Turma')} />
+        <Turma turma="2° Ensino Médio" onClick={() => navigate('/Turma')} />
+        <Turma turma="3° Ensino Médio" onClick={() => navigate('/Turma')} />
+        <Turma turma="9° Ano" onClick={() => navigate('/Turma')} />
+        <Turma turma="8° Ano" onClick={() => navigate('/Turma')} />
 
       </div>
     </div>

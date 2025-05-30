@@ -1,0 +1,19 @@
+.fundo-tela {
+    position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fundo-tela::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../../../assets/fundo_telas_poliedro.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* ajuste a opacidade conforme necessário */
+    z-index: 0;
+}

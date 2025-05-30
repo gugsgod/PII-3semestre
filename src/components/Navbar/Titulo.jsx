@@ -1,7 +1,8 @@
 import "./navbar.css";
 
-const Titulo = (props) => {
 
+const Titulo = (props) => {
+    
     return (
         <nav className="navbar">
             <h1 className="text-3xl text-[#4C4747] p-3">{props.titulo}</h1>

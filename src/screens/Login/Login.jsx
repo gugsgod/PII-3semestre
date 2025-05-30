@@ -49,7 +49,7 @@ function Login() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit" className='botao-login'>Login</button>
         </form>
         <a href="/" className="forgot-link">Esqueceu a senha?</a>
       </div>

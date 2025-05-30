@@ -17,12 +17,12 @@ const AtribuirPontos = () => {
     }, [tipo, navigate])
 
     // Tira a scrollbar do body
-    useEffect(() => {
-        document.body.style.overflow = "hidden"
-        return () => {
-            document.body.style.overflow = "auto"
-        }
-    }, [])
+    // useEffect(() => {
+    //     document.body.style.overflow = "hidden"
+    //     return () => {
+    //         document.body.style.overflow = "auto"
+    //     }
+    // }, [])
 
     // Popup
 
@@ -30,16 +30,16 @@ const AtribuirPontos = () => {
     return (
         <div>
             <Titulo titulo="Atribuir pontos" />
-
-            <div className="flex flex-col items-center justify-center h-screen gap-5 p-10 border-black overflow-scroll mt-10 mb-10">
-                <Pontos atividade="Atividade 1 - História"/>
-                <Pontos atividade="Atividade 2 - Matemática"/>
-                <Pontos atividade="Atividade 3 - Ciências"/>
-                <Pontos atividade="Atividade 4 - Geografia"/>
-                <Pontos atividade="Atividade 5 - Inglês"/>
-                <Pontos atividade="Atividade 6 - Educação Física"/>
-                <Pontos atividade="Atividade 7 - Artes"/>
-                <Pontos atividade="Atividade 8 - História"/>
+            <div>
+                
+            </div>
+            <div className="max-h-[80vh] overflow-y-auto">
+                <Pontos atividade="História"/>
+                <Pontos atividade="Matemática"/>
+                <Pontos atividade="Ciências"/>
+                <Pontos atividade="Geografia"/>
+                <Pontos atividade="Inglês"/>
+                <Pontos atividade="Educação Física"/>
             </div>
         </div>
     )

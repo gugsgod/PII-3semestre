@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import icon1 from "../../assets/popup_botao.png"; // Importando o ícone de atribuir pontos
+
 const Pontos = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -7,7 +9,7 @@ const Pontos = (props) => {
     <div className="border-b-2 w-full border-gray-300 p-5">
       <h1 className="text-lg text-gray-700">{props.atividade}</h1>
       <div className="flex justify-end">
-        <button onClick={() => setIsOpen(true)}></button>
+        <button className="hover:bg-white" onClick={() => setIsOpen(true)}><img src={icon1} alt="" className="w-7 h-7"/></button>
 
         {isOpen && (
           <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col items-center justify-center">
@@ -52,7 +54,7 @@ const Pontos = (props) => {
                   </button>
                 </div>
                 <button
-                  className="bg-#253E7D text-white px-4 py-2 rounded-full hover:bg-blue-600 w-36"
+                  className="bg-[#253E7D] text-white px-4 py-2 rounded-full hover:bg-blue-600 w-36"
                   onClick={() => setIsOpen(false)}
                 >
                   Fechar
