@@ -56,7 +56,7 @@ func enviarSenha(email string) error {
 	smtpHost := "smtp.gmail.com"
 	smtpPort := "587"
 	remetente := "nihplisetsky@gmail.com"
-	senha := "kwlg jlry maha ycon"
+	senha := os.Getenv("SENHA")
 
 	auth := smtp.PlainAuth("", remetente, senha, smtpHost)
 
