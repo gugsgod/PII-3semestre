@@ -17,6 +17,7 @@ import CriarAtividades from './screens/HomeProfessor/CategoriasPontuacao/CriarAt
 import Turma from './screens/HomeProfessor/GerenciarTurmas/turma';
 
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
+import MeusPontosEAtividades from './screens/HomeAluno/MeusPontosEAtividades/MeusPontosEAtividades';
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
           }
         />
         <Route
+          path='/MeusPontosEAtividades'
+          element={
+            <RotaPrivada tipoEsperado={"aluno"}>
+              <MeusPontosEAtividades />
+            </RotaPrivada>
+          }
+        />
+        <Route
           path="/coordenacao"
           element={
             <RotaPrivada tipoEsperado="coordenacao">
@@ -59,7 +68,7 @@ function App() {
           path="/AdicionarPessoas"
           element={
             <RotaPrivada tipoEsperado="coordenacao">
-              <AdicionarPessoas/>
+              <AdicionarPessoas />
             </RotaPrivada>
           }
         />
@@ -67,7 +76,7 @@ function App() {
           path='/GerenciarPessoas'
           element={
             <RotaPrivada tipoEsperado={"coordenacao"}>
-              <GerenciarPessoas/>
+              <GerenciarPessoas />
             </RotaPrivada>
           }
         />
@@ -75,7 +84,7 @@ function App() {
           path='/Ranking'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <Ranking/>
+              <Ranking />
             </RotaPrivada>
           }
         />
@@ -83,7 +92,7 @@ function App() {
           path='/GerenciarTurmas'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <GerenciarTurmas/>
+              <GerenciarTurmas />
             </RotaPrivada>
           }
         />
@@ -91,7 +100,7 @@ function App() {
           path='/AtribuirPontos'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <AtribuirPontos/>
+              <AtribuirPontos />
             </RotaPrivada>
           }
         />
@@ -99,7 +108,7 @@ function App() {
           path='/CategoriasPontuacao'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <CategoriaPontuacao/>
+              <CategoriaPontuacao />
             </RotaPrivada>
           }
         />
@@ -107,7 +116,7 @@ function App() {
           path='/TelaInicialAtribuirPontos'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <TelaInicialAtribuirPontos/>
+              <TelaInicialAtribuirPontos />
             </RotaPrivada>
           }
         />
@@ -115,7 +124,7 @@ function App() {
           path='/AtividadePorTurma'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <AtividadePorTurma/>
+              <AtividadePorTurma />
             </RotaPrivada>
           }
         />
@@ -123,7 +132,7 @@ function App() {
           path='/AtividadesDaTurma'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <AtividadesDaTurma/>
+              <AtividadesDaTurma />
             </RotaPrivada>
           }
         />
@@ -131,7 +140,7 @@ function App() {
           path='/CriarAtividades'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <CriarAtividades/>
+              <CriarAtividades />
             </RotaPrivada>
           }
         />
@@ -139,7 +148,7 @@ function App() {
           path='/Turma'
           element={
             <RotaPrivada tipoEsperado={"professor"}>
-              <Turma/>
+              <Turma />
             </RotaPrivada>
           }
         />

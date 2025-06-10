@@ -33,7 +33,7 @@ function HomeAluno() {
             <Navbar usuario="Olá, Aluno"/>
             <div className='aluno-background'>
                 <div className='card-grid2'>
-                    <Card icon={icon1} label="Meu pontos e atividades" size="medium"/>
+                    <Card icon={icon1} label="Meu pontos e atividades" size="medium"  onClick={() => navigate("/MeusPontosEAtividades")}/>
                     <Card icon={icon2} label="Ranking" size="medium" className="card-ranking"/>
                   
                 </div>
