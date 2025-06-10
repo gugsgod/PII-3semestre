@@ -18,9 +18,9 @@
     z-index: -1;
 }
 
-.card-grid {
+.card-grid2 {
     display: flex;
-    gap: 100px;
+    gap: 220px;
     flex-wrap: wrap;
     justify-content: center;
 }

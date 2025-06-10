@@ -23,7 +23,7 @@ function HomeCoordenacao() {
     <div>
       <Navbar usuario="Olá, Coordenação" />
       <div className="coordenacao-background">
-        <div className="card-grid">
+        <div className="card-grid1">
           <Card
             icon={icon1}
             label={"Adicionar Pessoas"}

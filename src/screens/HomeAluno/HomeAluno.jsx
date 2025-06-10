@@ -20,12 +20,19 @@ function HomeAluno() {
         }
     }, [tipo, navigate]);
 
+    useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
 
     return (
         <div>
             <Navbar usuario="Olá, Aluno"/>
             <div className='aluno-background'>
-                <div className='card-grid'>
+                <div className='card-grid2'>
                     <Card icon={icon1} label="Meu pontos e atividades" size="medium"/>
                     <Card icon={icon2} label="Ranking" size="medium" className="card-ranking"/>
                   
