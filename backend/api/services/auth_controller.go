@@ -1,35 +1,34 @@
-package main
+ypackage main
 
 import (
 	"fmt"
-	"time"
 	"github.com/golang-jwt/jwt/v5"
 	"os"
+	"time"
+	"strings"
+	"net/http"
 
 	_ "github.com/joho/godotenv/autoload"
 )
 
 var secretKey = []byte(os.Getenv("SECRETKEY"))
 
-func criarToken(username string) {
+func criarToken(username string) (string, error) {
 	claims := jwt.MapClaims{
 		"sub": username,
 		"exp": time.Now().Add(time.Hour).Unix(),
-		"iat": time.Now().Unix(),               
+		"iat": time.Now().Unix(),
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-
 	tokenString, err := token.SignedString(secretKey)
 	if err != nil {
-		fmt.Println("Erro ao assinar o token:", err)
-		return
+		return "", err
 	}
 
-	fmt.Println("Chave secreta: ", secretKey)
-	fmt.Println("Estrutura das claims: ", claims)
-	fmt.Println("Token JWT gerado:", tokenString)
+	return tokenString, nil
 }
+
 
 func validarToken(tokenString string) (*jwt.MapClaims, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
@@ -50,7 +49,44 @@ func validarToken(tokenString string) (*jwt.MapClaims, error) {
 	}
 }
 
+func middlewareAutenticacao(next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		authHeader := r.Header.Get("Authorization")
+		tokenString := strings.TrimPrefix(authHeader, "Bearer ")
+
+		claims, err := validarToken(tokenString)
+		if err != nil {
+			http.Error(w, "Token inválido ou não autorizado", http.StatusUnauthorized)
+			return
+		}
+
+		// Aqui você pode até usar o valor dos claims, como o username
+		fmt.Println("Usuário autenticado:", (*claims)["sub"])
+
+		next(w, r)
+	}
+}
+
+func loginHandler(w http.ResponseWriter, r *http.Request) {
+	username := r.URL.Query().Get("username")
+	if username == "" {
+		http.Error(w, "Parâmetro 'username' é obrigatório", http.StatusBadRequest)
+		return
+	}
+
+	token, err := criarToken(username)
+	if err != nil {
+		http.Error(w, "Erro ao gerar token", http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Fprintf(w, "Token JWT: %s", token)
+}
 
 func main() {
-	criarToken("bosta")
+	http.HandleFunc("/login", loginHandler)
+	// Rotas de ficticias para exemplo
+	http.HandleFunc("/protegida", middlewareAutenticacao(rotaProtegida))
+	http.HandleFunc("/adicionaraluno", middlewareAutenticacao(adicionarAlunoHandler))
 }
+
