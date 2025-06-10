@@ -1,7 +1,7 @@
 package database
 
-import(
+/*import(
 	"database/sql"
 	"time"
 	_ "github.com/go-sql-driver/mysql"
-)
+)*/

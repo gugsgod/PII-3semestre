@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"backend/api/controllers"
+	"backend/api/database"
 )
 
 func main(){
