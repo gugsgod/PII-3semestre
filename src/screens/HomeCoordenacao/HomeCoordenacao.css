@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    z-index: 0;
 }
 
 .coordenacao-background::before {
@@ -14,14 +14,8 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background: url('../../assets/fundo_telas_poliedro.jpeg') center/cover no-repeat;
     opacity: 0.4;
-    z-index: 0;
+    z-index: -1;
 }
-
-.coordenacao-background > * {
-  position: relative;
-  z-index: 1;
-}
-
 
 .card-grid {
     display: flex;
