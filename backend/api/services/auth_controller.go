@@ -1,34 +1,46 @@
-ypackage main
+package main
 
 import (
+	"context"
+	"database/sql"
+	"encoding/json"
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
-	"os"
-	"time"
-	"strings"
 	"net/http"
+	"os"
+	"strings"
+	"time"
 
 	_ "github.com/joho/godotenv/autoload"
 )
 
+var db *sql.DB
+
+func init() {
+	var err error
+	db, err = sql.Open("postgres", "user=username dbname=mydb sslmode=disable")
+	if err != nil {
+		fmt.Println("Erro ao conectar ao banco de dados:", err)
+	}
+}
+
 var secretKey = []byte(os.Getenv("SECRETKEY"))
 
-func criarToken(username string) (string, error) {
+func criarToken(role string) string {
 	claims := jwt.MapClaims{
-		"sub": username,
-		"exp": time.Now().Add(time.Hour).Unix(),
-		"iat": time.Now().Unix(),
+		"exp":  time.Now().Add(time.Hour).Unix(),
+		"iat":  time.Now().Unix(),
+		"role": role,
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := token.SignedString(secretKey)
 	if err != nil {
-		return "", err
+		return ""
 	}
 
-	return tokenString, nil
+	return tokenString
 }
-
 
 func validarToken(tokenString string) (*jwt.MapClaims, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
@@ -60,33 +72,61 @@ func middlewareAutenticacao(next http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
-		// Aqui você pode até usar o valor dos claims, como o username
-		fmt.Println("Usuário autenticado:", (*claims)["sub"])
+		ctx := context.WithValue(r.Context(), "claims", claims)
+		r = r.WithContext(ctx)
 
 		next(w, r)
 	}
 }
 
+type Credenciais struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-	username := r.URL.Query().Get("username")
-	if username == "" {
-		http.Error(w, "Parâmetro 'username' é obrigatório", http.StatusBadRequest)
-		return
-	}
-
-	token, err := criarToken(username)
+	var cred Credenciais
+	err := json.NewDecoder(r.Body).Decode(&cred)
 	if err != nil {
-		http.Error(w, "Erro ao gerar token", http.StatusInternalServerError)
+		http.Error(w, "JSON inválido", http.StatusBadRequest)
 		return
 	}
 
-	fmt.Fprintf(w, "Token JWT: %s", token)
+	// Consultar o banco: SELECT role FROM users WHERE username=? AND password=?
+	var role string
+	err = db.QueryRow("SELECT role FROM users WHERE username=$1 AND password=$2", cred.Username, cred.Password).Scan(&role)
+	if err != nil {
+		http.Error(w, "Credenciais inválidas", http.StatusUnauthorized)
+		return
+	}
+
+	token := criarToken(role)
+	if token == "" {
+		http.Error(w, "Erro ao criar token", http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Fprintln(w, token)
+}
+func rotaProtegida(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Acesso autorizado: Usuario autenticado")
+}
+
+func rotaAdmin(w http.ResponseWriter, r *http.Request) {
+	claims := r.Context().Value("claims").(*jwt.MapClaims)
+
+	if (*claims)["role"] != "admin" {
+		http.Error(w, "Acesso negado, apenas administracao", http.StatusForbidden)
+		return
+	}
+
+	fmt.Fprintln(w, "Bem-vindo")
 }
 
 func main() {
 	http.HandleFunc("/login", loginHandler)
-	// Rotas de ficticias para exemplo
+	// Rotas ficticias para exemplo
 	http.HandleFunc("/protegida", middlewareAutenticacao(rotaProtegida))
-	http.HandleFunc("/adicionaraluno", middlewareAutenticacao(adicionarAlunoHandler))
+	http.HandleFunc("/admin", middlewareAutenticacao(rotaAdmin))
+	http.ListenAndServe(":8080", nil)
 }
-

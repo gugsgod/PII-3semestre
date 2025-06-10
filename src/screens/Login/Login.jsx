@@ -9,6 +9,22 @@ function Login() {
   const [senha, setSenha] = useState('');
 
   const handleLogin = () => {
+
+    const email = document.getElementById("campo-email").value;
+    const password = document.getElementById("campo-senha").value;
+
+    fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    })
+    .then(res => res.text())
+    .then(token => {
+        localStorage.setItem("jwt", token);
+        alert("Token salvo!");
+    });
+
+
     const emailLower = email.toLowerCase();
 
     if (emailLower === 'coordenacao@seudominio.com' && senha === '123') {
@@ -30,6 +46,9 @@ function Login() {
     }
 
     alert('E-mail ou senha inválidos');
+
+
+
   };
 
   return (
@@ -38,12 +57,14 @@ function Login() {
         <img src={logo} alt="Poliedro Educação" className="login-logo" />
         <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
           <input
+            id="campo-email"
             type="email"
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
+            id="campo-senha"
             type="password"
             placeholder="Senha"
             value={senha}
