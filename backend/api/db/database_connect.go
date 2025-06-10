@@ -7,7 +7,10 @@ import(
 )
 
 func dbConnect(){
-	db, err := sql.Open("mysql", "user:password@dbname)
+	dsn := "gugs:123321@tcp(34.39.135.86)/pii"
+
+	db, err := sql.Open("mysql", dsn)
+
 	if err != nil {
 		panic(err)
 	}

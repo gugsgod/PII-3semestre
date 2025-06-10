@@ -23,13 +23,13 @@ function HomeProfessor() {
 
   return (
     <>
-      <Navbar usuario="Olá, Professor"/>
+      <Navbar />
       <div className="professor-background">
         <div className="card-grid">
-          <Card icon={icon1} label="Atribuir pontos" onClick={() => navigate("/TelaInicialAtribuirPontos")} size="small"/>
-          <Card icon={icon2} label="Ranking" onClick={() => navigate("/Ranking")} size="small"/>
-          <Card icon={icon3} label="Editar pontuação" size="small" onClick={() => navigate("/CategoriasPontuacao")}/>
-          <Card icon={icon4} label="Gerenciar turmas" onClick={() => navigate("/GerenciarTurmas")} size="small"/>
+          <Card icon={icon1} label="Atribuir pontos" onClick={() => navigate("/TelaInicialAtribuirPontos")} size="small" />
+          <Card icon={icon2} label="Ranking" onClick={() => navigate("/Ranking")} size="small" />
+          <Card icon={icon3} label="Editar pontuação" size="small" onClick={() => navigate("/CategoriasPontuacao")} />
+          <Card icon={icon4} label="Gerenciar turmas" onClick={() => navigate("/GerenciarTurmas")} size="small" />
         </div>
       </div>
     </>
