@@ -28,7 +28,7 @@ const CategoriaPontuacao = () => {
   return (
     <div>
         <Titulo titulo="Editar Categorias de Pontuação"/>
-        <div className="categoria-background">
+        <div className='categoria-background'>
             <div className="flex items-center justify-center w-full gap-24">
                 <Card icon={icon1} size="medium" label="Criar atividade" onClick={() => navigate('/CriarAtividades')}/>
                 <div className="max-h-[80vh] overflow-auto">
