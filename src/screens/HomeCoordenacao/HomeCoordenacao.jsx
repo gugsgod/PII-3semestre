@@ -32,7 +32,7 @@ function HomeCoordenacao() {
           />
           <Card
             icon={icon2}
-            label={"Gerenciar Turmas"}
+            label={"Gerenciar Pessoas"}
             onClick={() => navigate("/GerenciarPessoas")}
             size="large"
           />

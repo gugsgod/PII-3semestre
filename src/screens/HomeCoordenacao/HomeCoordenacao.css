@@ -5,18 +5,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 0;
+    overflow: hidden;
 }
 
 .coordenacao-background::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: url("../../assets/fundo_telas_poliedro.jpeg");
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../../assets/fundo_telas_poliedro.jpeg') center/cover no-repeat;
     opacity: 0.4;
-    z-index: -1;
-    pointer-events: none;
+    z-index: 0;
 }
+
+.coordenacao-background > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 .card-grid {
     display: flex;
