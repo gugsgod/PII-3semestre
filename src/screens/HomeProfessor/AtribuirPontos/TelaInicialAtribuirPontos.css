@@ -1,24 +1,18 @@
 .page-background {
-position: relative;
-padding: 40px;
-min-height: calc(100vh - 60px); /* deixa espaço pra navbar */
-display: flex;
-justify-content: center;
-align-items: center;
+    position: relative;
+    padding: 40px;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
 }
 
 .page-background::before {
-content: "";
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: url('../../../assets/fundo_telas_poliedro.jpeg');
-background-size: cover;
-opacity: 0.4; /* ajuste a transparência aqui */
-z-index: 0;
-pointer-events: none;
-}
-
-.page-background > * {
-position: relative;
-z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../../../assets/fundo_telas_poliedro.jpeg') center/cover no-repeat;
+    opacity: 0.4;
+    z-index: -1;
 }
