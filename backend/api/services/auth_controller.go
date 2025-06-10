@@ -11,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/joho/godotenv/autoload"
 )
 
@@ -18,10 +19,11 @@ var db *sql.DB
 
 func init() {
 	var err error
-	db, err = sql.Open("postgres", "user=username dbname=mydb sslmode=disable")
+	db, err = sql.Open("mysql", "pigas:123321@tcp(34.39.135.86)/pii")
 	if err != nil {
 		fmt.Println("Erro ao conectar ao banco de dados:", err)
 	}
+	fmt.Println("up and running")
 }
 
 var secretKey = []byte(os.Getenv("SECRETKEY"))
@@ -80,7 +82,7 @@ func middlewareAutenticacao(next http.HandlerFunc) http.HandlerFunc {
 }
 
 type Credenciais struct {
-	Username string `json:"username"`
+	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
@@ -92,9 +94,8 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Consultar o banco: SELECT role FROM users WHERE username=? AND password=?
 	var role string
-	err = db.QueryRow("SELECT role FROM users WHERE username=$1 AND password=$2", cred.Username, cred.Password).Scan(&role)
+	err = db.QueryRow("SELECT role FROM users WHERE email=$1 AND password=$2", cred.Email, cred.Password).Scan(&role)
 	if err != nil {
 		http.Error(w, "Credenciais inválidas", http.StatusUnauthorized)
 		return
