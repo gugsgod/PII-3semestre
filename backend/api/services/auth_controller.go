@@ -127,7 +127,6 @@ func rotaAdmin(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/login", loginHandler)
 	// Rotas ficticias para exemplo
-	http.HandleFunc("/protegida", middlewareAutenticacao(rotaProtegida))
 	http.HandleFunc("/admin", middlewareAutenticacao(rotaAdmin))
 	http.ListenAndServe(":8080", nil)
 }

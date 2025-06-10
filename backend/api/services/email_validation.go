@@ -4,19 +4,19 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"net/smtp"
-	"sync"
-	"github.com/gin-gonic/gin"
 	"os"
+	"sync"
 
 	_ "github.com/joho/godotenv/autoload"
 )
 
 var (
-	tokens = make(map[string]string)
+	tokens      = make(map[string]string)
 	verificados = make(map[string]bool)
-	mu     sync.Mutex
+	mu          sync.Mutex
 )
 
 func gerarToken() string {
@@ -52,21 +52,18 @@ func gerarSenhaAleatoria() string {
 	return string(bytes)
 }
 
-func enviarSenha(email string) error {
+func enviarSenha(email, senha string) error {
 	smtpHost := "smtp.gmail.com"
 	smtpPort := "587"
 	remetente := "nihplisetsky@gmail.com"
-	senha := os.Getenv("SENHA")
+	auth := smtp.PlainAuth("", remetente, os.Getenv("SENHA"), smtpHost)
 
-	auth := smtp.PlainAuth("", remetente, senha, smtpHost)
-
-	senhaUsuario := gerarSenhaAleatoria()
-
-	msg := []byte("To: " + email + "\r\n" + "Subject: Senha para login\r\n\r\n" + "Olá!\n\n Essa é sua senha para acessar a plataforma poliedro: " + senhaUsuario + "\n")
+	msg := []byte("To: " + email + "\r\n" +
+		"Subject: Senha para login\r\n\r\n" +
+		"Olá!\n\nEssa é sua senha para acessar a plataforma: " + senha + "\n")
 
 	return smtp.SendMail(smtpHost+":"+smtpPort, auth, remetente, []string{email}, msg)
 }
-
 
 func main() {
 	router := gin.Default()
@@ -80,7 +77,6 @@ func main() {
 			c.JSON(http.StatusBadRequest, gin.H{"erro": "JSON inválido"})
 			return
 		}
-
 		token := gerarToken()
 
 		mu.Lock()
@@ -103,7 +99,11 @@ func main() {
 		email, existe := tokens[token]
 		if existe {
 			verificados[email] = true
-			enviarSenha(email)
+			senhaGerada := gerarSenhaAleatoria()
+			//----------------------- SALVAR NO BANCO AQUI-----------------------
+
+			// ---------------------------------------------------
+			enviarSenha(email, senhaGerada)
 			delete(tokens, token)
 		}
 		mu.Unlock()
