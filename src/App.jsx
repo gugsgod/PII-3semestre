@@ -19,11 +19,12 @@ import CriarCategoria from './screens/HomeProfessor/CategoriasPontuacao/CriarCat
 import CategoriasPorTurma from './screens/HomeProfessor/AtribuirPontos/CategoriasPorTurma';
 import NomeAlunos from './screens/HomeProfessor/AtribuirPontos/NomeAlunos';
 
-import TestePDF from './tests/TestePDF'; 
+import TestePDF from './tests/TestePDF';
 
 
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
 import MeusPontosEAtividades from './screens/HomeAluno/MeusPontosEAtividades/MeusPontosEAtividades';
+import RankingAluno from './screens/HomeAluno/RankingAluno/RankingAluno';
 
 function App() {
   return (
@@ -51,6 +52,14 @@ function App() {
           element={
             <RotaPrivada tipoEsperado={"aluno"}>
               <MeusPontosEAtividades />
+            </RotaPrivada>
+          }
+        />
+        <Route
+          path='/RankingAluno'
+          element={
+            <RotaPrivada tipoEsperado={"aluno"}>
+              <RankingAluno />
             </RotaPrivada>
           }
         />
