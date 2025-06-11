@@ -25,9 +25,13 @@ const TelaInicialAtribuirPontos = () => {
     };
   }, []);
 
+  const handleVoltarClick = () => {
+    navigate("/Professor");
+  };
+
   return (
     <div>
-      <Titulo titulo="Atribuir pontos"/>
+      <Titulo titulo="Atribuir pontos" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
       <div className="page-background">
         <div className="flex flex-col gap-12">
           <Barra icon={icon} titulo="Atividades" onClick={() => navigate("/AtividadePorTurma")}/>

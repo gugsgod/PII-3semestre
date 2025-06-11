@@ -26,9 +26,14 @@ const AtividadePorTurma = () => {
     navigate("/NomeAlunos");
   };
 
+  const handleVoltarClick = () => {
+    localStorage.removeItem("turmaSelecionada");
+    navigate("/TelainicialAtribuirPontos");
+  };
+
   return (
     <div>
-      <Titulo titulo="Selecione a turma" />
+      <Titulo titulo="Selecione a turma" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
       <div className="flex flex-col items-center max-h-[80vh] gap-5 p-10 border-black  overflow-y-scroll">
         <Turma turma="1° Ensino Médio" onClick={() => handleTurmaClick('1° Ensino Médio')} />
         <Turma turma="2° Ensino Médio" onClick={() => handleTurmaClick('2° Ensino Médio')} />

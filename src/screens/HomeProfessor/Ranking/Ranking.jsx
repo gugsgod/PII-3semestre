@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Ranking.css";
 import TabelaRanking from "../../../components/Ranking/Ranking";
+import Titulo from "../../../components/Navbar/Titulo"; // Importando o componente de título
 
 const Ranking = () => {
   const navigate = useNavigate();
@@ -22,9 +23,23 @@ const Ranking = () => {
   }, []);
 
   return (
-    <div className="aluno-page">
-      <div className="ranking-container">
-        <TabelaRanking />
+    <div>
+      <div className="flex items-center p-6 justify-between">
+        <div className="">
+          <button className="mr-4 bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg hover:text-white" onClick={() => navigate("/Professor")}>
+            Voltar
+          </button>
+        </div>
+        <div>
+          <button className="mr-4 bg-[#253E7D] rounded-2xl p-1 w-36 shadow-lg text-white" onClick={() => navigate("/TelainicialAtribuirPontos")}>
+            Tornar publico
+          </button>
+        </div>
+      </div>
+      <div className="aluno-page">
+        <div className="ranking-container">
+          <TabelaRanking />
+        </div>
       </div>
     </div>
   );

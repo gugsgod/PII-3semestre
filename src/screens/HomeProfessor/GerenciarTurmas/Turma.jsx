@@ -9,6 +9,7 @@ import "./Turma.css";
 const Turma = () => {
   const navigate = useNavigate();
   const tipo = localStorage.getItem("tipoUsuario");
+  const turmaSelecionada = localStorage.getItem("turmaSelecionada") || "1° Ensino Médio";
 
   useEffect(() => {
     if (tipo !== "professor") {
@@ -24,9 +25,14 @@ const Turma = () => {
     };
   }, []);
 
+  const handleVoltarClick = () => {
+    localStorage.removeItem("turmaSelecionada");
+    navigate("/GerenciarTurmas");
+  };
+
   return (
     <div>
-      <Titulo titulo="1° Ensino Médio" />
+      <Titulo titulo={`${turmaSelecionada}`} onClickBotao={handleVoltarClick} mostrarBotao={true} />
       <div className="turma-background">
         <div className="flex items-center justify-center w-full gap-48">
           <div className="flex gap-24">
