@@ -18,9 +18,17 @@ function HomeCoordenacao() {
     }
   }, [tipo, navigate]);
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <div>
       <Navbar usuario="Olá, Coordenação" />
+      <div className="ms-4 mt-4 flex justify-start text-center p-1">
+        <button className="bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg hover:text-white" onClick={handleLogout}>Sair</button>
+      </div>
       <div className="coordenacao-background">
         <div className="card-grid1">
           <Card
