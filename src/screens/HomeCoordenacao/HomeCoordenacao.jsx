@@ -28,19 +28,17 @@ function HomeCoordenacao() {
             label={"Adicionar Pessoas"}
             onClick={() => navigate("/AdicionarPessoas")}
             size="large"
+            className="card-adicionar"
           />
           <Card
             icon={icon2}
             label={"Gerenciar Pessoas"}
             onClick={() => navigate("/GerenciarPessoas")}
             size="large"
+            className="card-gerenciar"
           />
         </div>
       </div>
-      {/* <h1>Bem-vindo, {tipo === 'coordenacao' ? 'coordenacao' : 'Usuário'}!</h1> */}
-
-      {/* Ahyfuyfufu */}
-      {/* <p>Essa é a área exclusiva para professores.</p> */}
     </div>
   );
 }

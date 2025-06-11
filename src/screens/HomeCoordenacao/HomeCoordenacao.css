@@ -19,7 +19,21 @@
 
 .card-grid1 {
     display: flex;
-    gap: 100px;
+    gap: 200px;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.card-adicionar .card-icon {
+    width: 75%;
+    height: auto;
+    margin: 10px auto 10px auto;
+    display: block;
+}
+
+.card-gerenciar .card-icon {
+    width: 60%;
+    height: auto;
+    margin: 10px auto 10px auto;
+    display: block;
 }

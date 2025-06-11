@@ -23,11 +23,10 @@
   display: block;
 }
 
-
 .card p {
   color: #002366;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .card.mini {
@@ -46,7 +45,7 @@
 }
 
 .card.large {
-  width: 340px;
+  width: 410px;
   height: 340px;
 }
 
