@@ -15,6 +15,8 @@ import AtividadePorTurma from './screens/HomeProfessor/AtribuirPontos/AtividadeP
 import AtividadesDaTurma from './screens/HomeProfessor/AtribuirPontos/AtividadesDaTurma';
 import CriarAtividades from './screens/HomeProfessor/CategoriasPontuacao/CriarAtividades';
 import Turma from './screens/HomeProfessor/GerenciarTurmas/turma';
+import TestePDF from './tests/TestePDF'; 
+
 
 import RotaPrivada from './components/RotaPrivada/RotaPrivada';
 import MeusPontosEAtividades from './screens/HomeAluno/MeusPontosEAtividades/MeusPontosEAtividades';
@@ -152,6 +154,8 @@ function App() {
             </RotaPrivada>
           }
         />
+        <Route path="/TestePDF" element={<TestePDF />} />
+
       </Routes>
     </Router>
   );

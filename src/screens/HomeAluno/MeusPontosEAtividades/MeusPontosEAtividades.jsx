@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+
 
 import "./MeusPontosEAtividades.css"
 
@@ -21,17 +24,36 @@ function MeusPontosEAtividades() {
     }, []);
 
     const atividades = [
-        { descricao: 'Prova 1 - História', pontos: 10 },
-        { descricao: 'Prova 2 - Geografia', pontos: 10 },
-        { descricao: 'Prova 1 - Geografia', pontos: 10 },
+        { descricao: 'Trabalho em equipe - Sociologia', pontos: 30 },
+        { descricao: 'Trabalho em equipe - Filosofia', pontos: 30 },
+        { descricao: 'Entrega de atividades - Filosofia', pontos: 15 },
         { descricao: 'Bom comportamento - História', pontos: 15 },
-        { descricao: 'Bom comportamento - Matemática', pontos: 15 },
-        { descricao: 'Atividade 4 - Matemática', pontos: 5 },
-        { descricao: 'Trabalho extra - História', pontos: 15 },
-        { descricao: 'Atividade especial - Geografia', pontos: 20 },
+        { descricao: 'Bom comportamento - Filosofia', pontos: 15 },
+        { descricao: 'Entrega de atividades - História', pontos: 15 },
+        { descricao: 'Bom comportamento - Sociologia', pontos: 15 },
+        { descricao: 'Trabalho em equipe - História', pontos: 20 },
     ];
 
-    const totalPontos = atividades.reduce((total, atividade) => total + atividade.pontos, 0);
+    const totalPontos = atividades.reduce((acc, atividade) => acc + atividade.pontos, 0);
+    const emitirRelatorio = () => {
+        const doc = new jsPDF();
+
+        doc.setFontSize(18);
+        doc.text('Relatório de Pontos', 14, 22);
+
+        doc.setFontSize(12);
+        doc.text(`Total de pontos: ${totalPontos}`, 14, 32);
+
+        const dadosTabela = atividades.map((a) => [a.descricao, `${a.pontos} pontos`]);
+
+        doc.autoTable({
+            head: [['Atividade', 'Pontos']],
+            body: dadosTabela,
+            startY: 40
+        });
+
+        doc.save('relatorio-de-pontos.pdf');
+    };
 
     return (
 
@@ -59,7 +81,7 @@ function MeusPontosEAtividades() {
                 </div>
 
                 <div className="botao-container">
-                    <button className="botao-relatorio">Emitir relatório</button>
+                    <button className="botao-relatorio" onClick={emitirRelatorio}>Emitir relatório</button>
                 </div>
             </div>
         </div>
