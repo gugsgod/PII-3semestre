@@ -25,9 +25,13 @@ const CategoriaPontuacao = () => {
     };
   }, []);
 
+  const handleVoltarClick = () => {
+    navigate("/Professor");
+  };
+
   return (
     <div>
-        <Titulo titulo="Editar Categorias e atividades"/>
+        <Titulo titulo="Editar Categorias e atividades" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
         <div className='categoria-background'>
             <div className="flex items-center justify-center w-full gap-48">
                 <div className="flex flex-col gap-14">

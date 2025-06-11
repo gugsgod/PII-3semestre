@@ -14,10 +14,13 @@ const AtividadesDaTurma = () => {
     }
   }, [tipo, navigate]);
 
+  const handleVoltarClick = () => {
+    navigate("/CategoriasPorTurma");
+  };
 
   return (
     <div>
-      <Titulo titulo={`Atividades da Turma ${atividade}`} />
+      <Titulo titulo={`Atividades da Turma ${atividade}`} onClickBotao={handleVoltarClick} mostrarBotao={true}/>
       {/* Conteúdo das atividades */}
       <div className='max-h-[80vh] overflow-auto'>
         <Pontos atividade="Bom comportamento"/>

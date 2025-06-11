@@ -15,9 +15,13 @@ const NomeAlunos = () => {
     }
   }, [tipo, navigate]);
 
+  const handleVoltarClick = () => {
+    navigate("/AtividadePorTurma");
+  };
+
   return (
     <div>
-      <Titulo titulo={`Alunos ${turma}`} />
+      <Titulo titulo={`Alunos ${turma}`} onClickBotao={handleVoltarClick} mostrarBotao={true}/>
       {/* Conteúdo das categorias */}
       <div className='max-h-[80vh] overflow-auto'>
         <Nomes atividade="Rafa Moreira" alunos={[]} />

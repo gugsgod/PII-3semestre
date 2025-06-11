@@ -13,10 +13,14 @@ const CriarCategoria = () => {
     }
   }, [tipo, navigate]);
 
+  const handleVoltarClick = () => {
+    navigate("/CategoriasPontuacao");
+  };
+
   return (
     <div>
-        <Titulo titulo="Criar Categoria de Pontuação" />
-        
+        <Titulo titulo="Criar Categoria de Pontuação" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+
         {/* Aqui você pode adicionar o conteúdo da página de criação de categoria */}
         <div className="bg-white">
           <form action="" className="flex flex-col gap-4 p-6 max-w-md mx-auto mt-24">

@@ -24,9 +24,13 @@ const CriarAtividades = () => {
     };
   }, []);
 
+  const handleVoltarClick = () => {
+    navigate("/CategoriasPontuacao");
+  };
+
   return (
     <div>
-      <Titulo titulo="Criar Atividades" />
+      <Titulo titulo="Criar Atividades" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
       <div className="">
         <div className="max-w-[500px] mx-auto mt-10">
             <form action="">
