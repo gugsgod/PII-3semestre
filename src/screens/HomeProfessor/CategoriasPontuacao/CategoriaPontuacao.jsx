@@ -44,7 +44,7 @@ const CategoriaPontuacao = () => {
                         descricao="Gerencie as atividades associadas às categorias de pontuação."
                         icon={icon1}
                         label={"Criar Categorias"}
-                        onClick={() => navigate("/categorias-pontuacao/atividades")}
+                        onClick={() => navigate("/CriarCategoria")}
                         size="small"
                     />
                 </div>

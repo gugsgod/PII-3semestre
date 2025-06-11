@@ -15,6 +15,7 @@ import AtividadePorTurma from './screens/HomeProfessor/AtribuirPontos/AtividadeP
 import AtividadesDaTurma from './screens/HomeProfessor/AtribuirPontos/AtividadesDaTurma';
 import CriarAtividades from './screens/HomeProfessor/CategoriasPontuacao/CriarAtividades';
 import Turma from './screens/HomeProfessor/GerenciarTurmas/turma';
+import CriarCategoria from './screens/HomeProfessor/CriarCategoria/CriarCategoria';
 import TestePDF from './tests/TestePDF'; 
 
 
@@ -155,7 +156,14 @@ function App() {
           }
         />
         <Route path="/TestePDF" element={<TestePDF />} />
-
+        <Route
+          path='/CriarCategoria'
+          element={
+            <RotaPrivada tipoEsperado={"professor"}>
+              <CriarCategoria />
+            </RotaPrivada>
+          }
+        />
       </Routes>
     </Router>
   );
