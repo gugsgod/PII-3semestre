@@ -25,11 +25,28 @@ const Turma = () => {
   }, []);
 
   return (
-    <div className>
-      <Titulo titulo="Turma"/>
+    <div>
+      <Titulo titulo="1° Ensino Médio" />
       <div className="turma-background">
-        <div>
-          
+        <div className="flex items-center justify-center w-full gap-48">
+          <div className="flex gap-24">
+            <div className="w-[60vh] h-[60vh]">
+              <Tabela
+                titulo="Atividades"
+                atividade1="Atividade 1"
+                atividade2="Atividade 2"
+                atividade3="Atividade 3"
+              />
+            </div>
+            <div className="w-[60vh] h-[60vh]">
+              <Tabela
+                titulo="Alunos"
+                atividade1="João da Silva"
+                atividade2="Maria Oliveira"
+                atividade3="Pedro Santos"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
