@@ -47,12 +47,6 @@ const CriarAtividades = () => {
                 mostrarBotao={true}
             />
             <div className="">
-                <div className="max-w-[500px] mx-auto mt-10">
-                    <form action="">
-                        <label htmlFor="">Nome da atividade</label>
-                        <input type="text" name="" id="" />
-                    </form>
-                </div>
                 <div className="max-w-[500px] mx-auto mt-20">
                     <label htmlFor="">Atribuir atividade às turmas</label>
                 </div>
@@ -70,7 +64,7 @@ const CriarAtividades = () => {
                         </button>
                     </div>
                     <div>
-                        <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white">
+                        <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white" onClick={() => navigate("/CategoriasPontuacao")}>
                             Fechar
                         </button>
                     </div>

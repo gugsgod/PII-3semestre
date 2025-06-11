@@ -27,19 +27,28 @@ const CriarCategoria = () => {
         navigate("/CategoriasPontuacao");
     };
 
+
     return (
         <div>
             <Titulo titulo="Criar Categoria de Pontuação" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
 
-            {/* Aqui você pode adicionar o conteúdo da página de criação de categoria */}
-            <div className="bg-white">
-                <form action="" className="flex flex-col gap-4 p-6 max-w-md mx-auto mt-24">
-                    <label htmlFor="categoria">Nome da Categoria:</label>
-                    <input type="text" id="categoria" />
-                    <label htmlFor="descricao">Descrição:</label>
-                    <input type="text" id="descricao" />
-                </form>
+
+        {/* Aqui você pode adicionar o conteúdo da página de criação de categoria */}
+        <div className="bg-white">
+          <form action="" className="flex flex-col gap-4 p-6 max-w-md mx-auto mt-24">
+            <label htmlFor="categoria">Nome da Categoria:</label>
+            <input type="text" id="categoria" className="border-2 border-gray-500 p-2 rounded-xl" />
+            <label htmlFor="descricao">Pontos da categoria:</label>
+            <input type="text" id="descricao" className="border-2 border-gray-500 p-2 rounded-xl" />
+          </form>
+          <div className="flex justify-between items-center p-6 max-w-md mx-auto mt-4">
+            <div>
+              <button className="bg-[#33B1FF] p-2 rounded-3xl w-36 text-white">Salvar</button>
             </div>
+            <div>
+              <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white" onClick={() => navigate("/CategoriasPontuacao")}>Fechar</button>
+            </div>
+          </div>
         </div>
     );
 };
