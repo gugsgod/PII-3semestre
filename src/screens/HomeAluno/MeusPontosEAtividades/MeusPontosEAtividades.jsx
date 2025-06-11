@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 import "./MeusPontosEAtividades.css"
 
 function MeusPontosEAtividades() {

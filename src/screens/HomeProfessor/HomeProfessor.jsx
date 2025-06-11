@@ -10,7 +10,7 @@ import icon1 from "../../assets/atribuir_pontos.png";
 import icon2 from "../../assets/ranking.png";
 import icon3 from "../../assets/categorias_pontuacao.png";
 import icon4 from "../../assets/atribuir_turmas.png";
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 function HomeProfessor() {
     const navigate = useNavigate();
     const tipo = localStorage.getItem("tipoUsuario");

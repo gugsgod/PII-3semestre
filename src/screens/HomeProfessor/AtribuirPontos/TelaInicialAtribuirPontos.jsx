@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 import Titulo from "../../../components/Navbar/Titulo";
 import Barra from "../../../components/Barra/Barra"; // Importando a barra de navegação
 import icon from "../../../assets/icon-atividade.png"; // Importando o ícone da atividade

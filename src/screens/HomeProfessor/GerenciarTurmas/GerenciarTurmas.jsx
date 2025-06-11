@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Titulo from '../../../components/Navbar/Titulo';
 import Turma from '../../../components/Turma/Turma';
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 const GerenciarTurmas = () => {
     const navigate = useNavigate();
     const tipo = localStorage.getItem('tipoUsuario');

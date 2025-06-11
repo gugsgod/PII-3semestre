@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 import Titulo from "../../../components/Navbar/Titulo";
 import Tabela from "../../../components/Tabela/Tabela";
 
