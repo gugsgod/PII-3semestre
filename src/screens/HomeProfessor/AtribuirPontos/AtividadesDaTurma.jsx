@@ -7,12 +7,12 @@ import Pontos from '../../../components/Pontos/Pontos';
 const AtividadesDaTurma = () => {
   const navigate = useNavigate();
 
-    const tipo = localStorage.getItem('tipoUsuario');
-    useEffect(() => {
-      if (tipo !== 'professor') {
-        navigate('/atividades');
-      }
-    }, [tipo, navigate]);
+  const tipo = localStorage.getItem('tipoUsuario');
+  useEffect(() => {
+    if (tipo !== 'professor') {
+      navigate('/atividades');
+    }
+  }, [tipo, navigate]);
 
 
   return (
