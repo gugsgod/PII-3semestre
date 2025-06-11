@@ -6,3 +6,8 @@ type Aluno struct {
 	DataNasc		string `json:"dataNasc"`
 }
 
+type NomeAluno struct{
+	ID			int 	`json:"id"`
+	NOME		string  `json:"nome"`
+}
+
