@@ -23,22 +23,22 @@ function AdicionarPessoas() {
     ];
 
 
-    useEffect(() => {
-        fetchAutomatico("http://localhost:8080/jwtcoordenacao")
-            .then(res => {
-                if (!res.ok) throw new Error("Não autorizado");
-                return res.text();
-            })
-            .then(data => {
-                console.log("Resposta:", data);
-            })
-            .catch(err => {
-                console.error("Erro:", err);
-                alert("Acesso não autorizado");
-                navigate("/");
+    // useEffect(() => {
+    //     fetchAutomatico("http://localhost:8080/jwtcoordenacao")
+    //         .then(res => {
+    //             if (!res.ok) throw new Error("Não autorizado");
+    //             return res.text();
+    //         })
+    //         .then(data => {
+    //             console.log("Resposta:", data);
+    //         })
+    //         .catch(err => {
+    //             console.error("Erro:", err);
+    //             alert("Acesso não autorizado");
+    //             navigate("/");
 
-            });
-    }, []);
+    //         });
+    // }, []);
     const validarEmail = (email) => {
         return (
             email.endsWith("@p4ed.com") ||

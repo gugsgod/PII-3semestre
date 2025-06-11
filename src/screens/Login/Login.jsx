@@ -13,17 +13,17 @@ function Login() {
     const email = document.getElementById("campo-email").value;
     const password = document.getElementById("campo-senha").value;
 
-    fetch("http://localhost:8080/jwtlogin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-    })
-    .then(res => res.json())
-    .then(data => {
-        localStorage.setItem("jwt", data.token);
-        localStorage.setItem("nome", data.nome)
-        alert("Login realizado com sucesso");
-    });
+    // fetch("http://localhost:8080/jwtlogin", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ email, password })
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //     localStorage.setItem("jwt", data.token);
+    //     localStorage.setItem("nome", data.nome)
+    //     alert("Login realizado com sucesso");
+    // });
 
 
     const emailLower = email.toLowerCase();

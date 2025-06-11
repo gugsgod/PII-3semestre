@@ -7,22 +7,22 @@ const CriarCategoria = () => {
   const navigate = useNavigate();
   const tipo = localStorage.getItem("tipoUsuario");
 
-  useEffect(() => {
-    fetchAutomatico("http://localhost:8080/jwtprofessor")
-      .then(res => {
-        if (!res.ok) throw new Error("Não autorizado");
-        return res.text();
-      })
-      .then(data => {
-        console.log("Resposta:", data);
-      })
-      .catch(err => {
-        console.error("Erro:", err);
-        alert("Acesso não autorizado");
-        navigate("/");
+  // useEffect(() => {
+  //   fetchAutomatico("http://localhost:8080/jwtprofessor")
+  //     .then(res => {
+  //       if (!res.ok) throw new Error("Não autorizado");
+  //       return res.text();
+  //     })
+  //     .then(data => {
+  //       console.log("Resposta:", data);
+  //     })
+  //     .catch(err => {
+  //       console.error("Erro:", err);
+  //       alert("Acesso não autorizado");
+  //       navigate("/");
 
-      });
-  }, []);
+  //     });
+  // }, []);
   const handleVoltarClick = () => {
     navigate("/CategoriasPontuacao");
   };
