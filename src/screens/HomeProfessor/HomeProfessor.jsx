@@ -39,12 +39,12 @@ function HomeProfessor() {
       <div className="ms-4 mt-4 flex justify-start text-center p-1">
         <button className="bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg" onClick={handleLogout}>Sair</button>
       </div>
-      <div className="professor-background">
-        <div className="flex gap-4 ">
-          <Card icon={icon1} label={"Atribuir Pontos"} onClick={() => navigate("/TelainicialAtribuirPontos")}/>
-          <Card icon={icon2} label={"Ranking"} onClick={() => navigate("/Ranking")}/>
-          <Card icon={icon3} label={"Categorias de Pontuação"} onClick={() => navigate("/CategoriasPontuacao")}/>
-          <Card icon={icon4} label={"Atribuir Turmas"} onClick={() => navigate("/GerenciarTurmas")}/>
+      <div className="professor-background flex justify-center items-center min-h-[80vh]">
+        <div className="flex flex-wrap justify-center items-center gap-4 w-full max-w-4xl px-2">
+          <Card icon={icon1} label={"Atribuir Pontos"} onClick={() => navigate("/TelainicialAtribuirPontos")} size="small"/>
+          <Card icon={icon2} label={"Ranking"} onClick={() => navigate("/Ranking")} size="small"/>
+          <Card icon={icon3} label={"Categorias de Pontuação"} onClick={() => navigate("/CategoriasPontuacao")} size="small"/>
+          <Card icon={icon4} label={"Atribuir Turmas"} onClick={() => navigate("/GerenciarTurmas")} size="small"/>
         </div>
       </div>
     </div>
