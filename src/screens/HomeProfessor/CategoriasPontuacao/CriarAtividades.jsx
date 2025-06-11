@@ -59,7 +59,7 @@ const CriarAtividades = () => {
             </button>
           </div>
           <div>
-            <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white">
+            <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white" onClick={() => navigate("/CategoriasPontuacao")}>
               Fechar
             </button>
           </div>
