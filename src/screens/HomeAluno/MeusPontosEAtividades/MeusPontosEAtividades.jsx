@@ -34,7 +34,7 @@ function MeusPontosEAtividades() {
         { descricao: 'Trabalho em equipe - História', pontos: 20 },
     ];
     
-    const nomeAluno = localStorage.getItem('nomeAluno') || 'Aluno não identificado';
+    const nomeAluno = localStorage.getItem("nome") || "Aluno não identificado";
     const totalPontos = atividades.reduce((acc, atividade) => acc + atividade.pontos, 0);
     const emitirRelatorio = () => {
         const doc = new jsPDF();
@@ -44,7 +44,7 @@ function MeusPontosEAtividades() {
 
         doc.setFontSize(12);
         doc.text(`Aluno: ${nomeAluno}`, 14, 30);
-        doc.text(`Total de pontos: ${totalPontos}`, 14, 32);
+        doc.text(`Total de pontos: ${totalPontos}`, 14, 35);
 
         const dadosTabela = atividades.map((a) => [a.descricao, `${a.pontos} pontos`]);
 
