@@ -1,6 +1,6 @@
 package models
 
-type Pontos struct {
+type NomePontos struct {
 	NOME			string `json:"nome"`
-	PONTOS			int `json: "pontos"`
+	PONTOS			int    `json:"pontos"`
 }

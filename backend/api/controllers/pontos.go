@@ -33,6 +33,7 @@ func GetPontuacaoPorAluno(db *slq.DB, c *gin.Context){
 		})
 		return
 	}
+
 	c.IndentedJSON(http.StatusOK, pontos)
 }
 
