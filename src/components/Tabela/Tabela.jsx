@@ -15,7 +15,7 @@ const Tabela = (props) => {
             <tr className="hover:bg-gray-50">
               <td className="px-4 py-2 border-b">{props.atividade1}</td>
               <td className="px-4 py-2 border-b">
-                <button className="rounded-md hover:bg-red-500 bg-white">
+                <button className="rounded-md  bg-white hover:bg-gray-50">
                   <img src={icon} alt="" className="w-10" />
                 </button>
               </td>
@@ -23,7 +23,7 @@ const Tabela = (props) => {
             <tr className="hover:bg-gray-50">
               <td className="px-4 py-2 border-b">{props.atividade2}</td>
               <td className="px-4 py-2 border-b">
-                <button className="rounded-md bg-white hover:bg-red-500">
+                <button className="rounded-md bg-white hover:bg-gray-50 ">
                   <img src={icon} alt="" className="w-10" />
                 </button>
               </td>
@@ -31,7 +31,7 @@ const Tabela = (props) => {
             <tr className="hover:bg-gray-50">
               <td className="px-4 py-2 border-b">{props.atividade3}</td>
               <td className="px-4 py-2 border-b">
-                <button className="rounded-md bg-white hover:bg-red-500">
+                <button className="rounded-md bg-white hover:bg-gray-50 ">
                   <img src={icon} alt="" className="w-10" />
                 </button>
               </td>
@@ -39,7 +39,7 @@ const Tabela = (props) => {
             <tr className="hover:bg-gray-50">
               <td className="px-4 py-2 border-b">{props.atividade4}</td>
               <td className="px-4 py-2 border-b">
-                <button className="rounded-md bg-white hover:bg-red-500">
+                <button className="rounded-md bg-white hover:bg-gray-50 ">
                   <img src={icon} alt="" className="w-10" />
                 </button>
               </td>
@@ -47,7 +47,7 @@ const Tabela = (props) => {
             <tr className="hover:bg-gray-50">
               <td className="px-4 py-2 border-b">{props.atividade5}</td>
               <td className="px-4 py-2 border-b">
-                <button className="rounded-md bg-white hover:bg-red-500">
+                <button className="rounded-md bg-white hover:bg-gray-50">
                   <img src={icon} alt="" className="w-10" />
                 </button>
               </td>
