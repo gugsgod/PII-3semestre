@@ -16,6 +16,8 @@ import AtividadesDaTurma from './screens/HomeProfessor/AtribuirPontos/Atividades
 import CriarAtividades from './screens/HomeProfessor/CategoriasPontuacao/CriarAtividades';
 import Turma from './screens/HomeProfessor/GerenciarTurmas/turma';
 import CriarCategoria from './screens/HomeProfessor/CategoriasPontuacao/CriarCategoria/CriarCategoria';
+import CategoriasPorTurma from './screens/HomeProfessor/AtribuirPontos/CategoriasPorTurma';
+
 import TestePDF from './tests/TestePDF'; 
 
 
@@ -161,6 +163,14 @@ function App() {
           element={
             <RotaPrivada tipoEsperado={"professor"}>
               <CriarCategoria />
+            </RotaPrivada>
+          }
+        />
+        <Route
+          path='/CategoriasPorTurma'
+          element={
+            <RotaPrivada tipoEsperado={"professor"}>
+              <CategoriasPorTurma />
             </RotaPrivada>
           }
         />

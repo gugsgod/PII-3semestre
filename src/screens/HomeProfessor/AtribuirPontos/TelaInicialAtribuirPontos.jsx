@@ -30,8 +30,8 @@ const TelaInicialAtribuirPontos = () => {
       <Titulo titulo="Atribuir pontos"/>
       <div className="page-background">
         <div className="flex flex-col gap-12">
-          <Barra icon={icon} titulo="Atividades por turma" onClick={() => navigate("/AtividadePorTurma")}/>
-          <Barra icon={icon2} titulo="Todas as atividades" onClick={() => navigate("/AtribuirPontos")}/>
+          <Barra icon={icon} titulo="Atividades" onClick={() => navigate("/AtividadePorTurma")}/>
+          <Barra icon={icon2} titulo="Categorias de pontuação" onClick={() => navigate("/CategoriasPorTurma")}/>
         </div>
       </div>
     </div>

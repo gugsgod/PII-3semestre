@@ -20,14 +20,10 @@ const AtividadesDaTurma = () => {
       <Titulo titulo="Atividades da Turma" />
       {/* Conteúdo das atividades */}
       <div className='max-h-[80vh] overflow-auto'>
-        <Pontos atividade="Atividade 1"/>
-        <Pontos atividade="Atividade 2"/>
-        <Pontos atividade="Atividade 3"/>
-        <Pontos atividade="Atividade 4"/>
-        <Pontos atividade="Atividade 5"/>
-        <Pontos atividade="Atividade 6"/>
-        <Pontos atividade="Atividade 7"/>
-        <Pontos atividade="Atividade 8"/>
+        <Pontos atividade="Bom comportamento"/>
+        <Pontos atividade="Participação ativa na aula"/>
+        <Pontos atividade="Trabalho em equipe e colaboração"/>
+        <Pontos atividade="Entregas das atividades no prazo"/>
       </div>
     </div>
   );

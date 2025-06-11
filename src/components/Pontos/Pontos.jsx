@@ -7,9 +7,9 @@ const Pontos = (props) => {
 
   return (
     <div className="border-b-2 w-full border-gray-300 p-5">
-      <h1 className="text-lg text-gray-700">{props.atividade}</h1>
+      <h1 className="text-lg text-gray-700 h-[2vh]">{props.atividade}</h1>
       <div className="flex justify-end">
-        <button className="hover:bg-white" onClick={() => setIsOpen(true)}><img src={icon1} alt="" className="w-7 h-7"/></button>
+        <button className="hover:bg-white h-[5vh]" onClick={() => setIsOpen(true)}><img src={icon1} alt="" className="w-7 h-7"/></button>
 
         {isOpen && (
           <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col items-center justify-center">
@@ -17,7 +17,7 @@ const Pontos = (props) => {
               {/* Titulo */}
               <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
                 <h1 className="text-3xl text-gray-700 text-center">
-                  Todos os alunos
+                  Todos os alunos da turma
                 </h1>
               </div>
 
