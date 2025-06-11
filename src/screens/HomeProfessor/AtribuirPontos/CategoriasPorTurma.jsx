@@ -21,15 +21,20 @@ const CategoriasPorTurma = () => {
     };
   }, []);
 
+  const handleAtividadeClick = (nomeTurma) => {
+    localStorage.setItem("atividadeSelecionada", nomeTurma);
+    navigate("/AtividadesDaTurma");
+  };
+
   return (
     <div>
       <Titulo titulo="Selecione a turma" />
       <div className="flex flex-col items-center max-h-[80vh] gap-5 p-10 border-black overflow-y-scroll">
-        <Turma turma="1° Ensino Médio" onClick={() => navigate('/CategoriasDaTurma')} />
-        <Turma turma="2° Ensino Médio" onClick={() => navigate('/AtividadesDaTurma')} />
-        <Turma turma="3° Ensino Médio" onClick={() => navigate('/CategoriasDaTurma')} />
-        <Turma turma="9° Ano" onClick={() => navigate('/CategoriasDaTurma')} />
-        <Turma turma="8° Ano" onClick={() => navigate('/CategoriasDaTurma')} />
+        <Turma turma="1° Ensino Médio" onClick={() => handleAtividadeClick('1° Ensino Médio')} />
+        <Turma turma="2° Ensino Médio" onClick={() => handleAtividadeClick('2° Ensino Médio')} />
+        <Turma turma="3° Ensino Médio" onClick={() => handleAtividadeClick('3° Ensino Médio')} />
+        <Turma turma="9° Ano" onClick={() => handleAtividadeClick('9° Ano')} />
+        <Turma turma="8° Ano" onClick={() => handleAtividadeClick('8° Ano')} />
       </div>
     </div>
   );

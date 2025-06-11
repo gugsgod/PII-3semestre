@@ -6,7 +6,7 @@ import Pontos from '../../../components/Pontos/Pontos';
 
 const AtividadesDaTurma = () => {
   const navigate = useNavigate();
-
+  const atividade = localStorage.getItem('atividadeSelecionada') || 'Atividade';
   const tipo = localStorage.getItem('tipoUsuario');
   useEffect(() => {
     if (tipo !== 'professor') {
@@ -17,7 +17,7 @@ const AtividadesDaTurma = () => {
 
   return (
     <div>
-      <Titulo titulo="Atividades da Turma" />
+      <Titulo titulo={`Atividades da Turma ${atividade}`} />
       {/* Conteúdo das atividades */}
       <div className='max-h-[80vh] overflow-auto'>
         <Pontos atividade="Bom comportamento"/>
