@@ -16,6 +16,7 @@ import (
 )
 
 var db *sql.DB
+var secretKey = []byte(os.Getenv("SECRETKEY"))
 
 func init() {
 	var err error
@@ -24,15 +25,16 @@ func init() {
 		fmt.Println("Erro ao conectar ao banco de dados:", err)
 	}
 	fmt.Println("up and running")
+	fmt.Println("Secret key carregada: ", string(secretKey))
 }
 
-var secretKey = []byte(os.Getenv("SECRETKEY"))
-
-func criarToken(role string) string {
+func criarToken(role, nome, email string) string {
 	claims := jwt.MapClaims{
+		"sub":  email,
 		"exp":  time.Now().Add(time.Hour).Unix(),
 		"iat":  time.Now().Unix(),
 		"role": role,
+		"nome": nome,
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
@@ -67,7 +69,8 @@ func middlewareAutenticacao(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")
 		tokenString := strings.TrimPrefix(authHeader, "Bearer ")
-
+		fmt.Println("Authorization Header:", authHeader)
+		fmt.Println("Token extraído:", tokenString)
 		claims, err := validarToken(tokenString)
 		if err != nil {
 			http.Error(w, "Token inválido ou não autorizado", http.StatusUnauthorized)
@@ -95,25 +98,27 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var role string
-	err = db.QueryRow("SELECT role FROM users WHERE email=$1 AND password=$2", cred.Email, cred.Password).Scan(&role)
+	var nome string
+	err = db.QueryRow("SELECT role, nome FROM propriedades_id WHERE email=? AND password=?", cred.Email, cred.Password).Scan(&role, &nome)
+
 	if err != nil {
 		http.Error(w, "Credenciais inválidas", http.StatusUnauthorized)
 		return
 	}
 
-	token := criarToken(role)
+	token := criarToken(role, nome, cred.Email)
 	if token == "" {
 		http.Error(w, "Erro ao criar token", http.StatusInternalServerError)
 		return
 	}
 
-	fmt.Fprintln(w, token)
-}
-func rotaProtegida(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Acesso autorizado: Usuario autenticado")
+	json.NewEncoder(w).Encode(map[string]string{
+		"token": token,
+		"nome":  nome,
+	})
 }
 
-func rotaAdmin(w http.ResponseWriter, r *http.Request) {
+func rotaCoordenacao(w http.ResponseWriter, r *http.Request) {
 	claims := r.Context().Value("claims").(*jwt.MapClaims)
 
 	if (*claims)["role"] != "admin" {
@@ -127,6 +132,6 @@ func rotaAdmin(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/login", loginHandler)
 	// Rotas ficticias para exemplo
-	http.HandleFunc("/admin", middlewareAutenticacao(rotaAdmin))
+	http.HandleFunc("/coordenacao", middlewareAutenticacao(rotaCoordenacao))
 	http.ListenAndServe(":8080", nil)
 }

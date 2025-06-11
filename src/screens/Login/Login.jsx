@@ -18,10 +18,11 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
     })
-    .then(res => res.text())
-    .then(token => {
-        localStorage.setItem("jwt", token);
-        alert("Token salvo!");
+    .then(res => res.json())
+    .then(data => {
+        localStorage.setItem("jwt", data.token);
+        localStorage.setItem("nome", data.nome)
+        alert("Login realizado com sucesso");
     });
 
 
