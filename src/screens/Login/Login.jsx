@@ -21,30 +21,19 @@ function Login() {
     .then(res => res.json())
     .then(data => {
         localStorage.setItem("jwt", data.token);
-        localStorage.setItem("nome", data.nome)
+        localStorage.setItem("nome", data.nome);
+        localStorage.setItem("role", data.role);
         alert("Login realizado com sucesso");
     });
 
 
     const emailLower = email.toLowerCase();
+    const role = localStorage.getItem("role")
 
-    if (emailLower === 'coordenacao@seudominio.com' && senha === '123') {
-      localStorage.setItem('tipoUsuario', 'coordenacao');
-      navigate('/coordenacao');
-      return;
-    }
+    if (role === "admin"){
+            leva pra cordenacao
+        }
 
-    if (emailLower.endsWith('@sistemapoliedro.com.br') && senha === '123') {
-      localStorage.setItem('tipoUsuario', 'professor');
-      navigate('/professor');
-      return;
-    }
-
-    if (emailLower.endsWith('@p4ed.com') && senha === '123') {
-      localStorage.setItem('tipoUsuario', 'aluno');
-      navigate('/aluno');
-      return;
-    }
 
     alert('E-mail ou senha inválidos');
 

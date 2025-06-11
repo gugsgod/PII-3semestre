@@ -133,5 +133,7 @@ func main() {
 	http.HandleFunc("/login", loginHandler)
 	// Rotas ficticias para exemplo
 	http.HandleFunc("/coordenacao", middlewareAutenticacao(rotaCoordenacao))
+	http.HandleFunc("/AdicionarPeassoas", middlewareAutenticacao(rotaCoordenacao))
+	http.HandleFunc("/GerenciarPessoas", middlewareAutenticacao(rotaCoordenacao))
 	http.ListenAndServe(":8080", nil)
 }

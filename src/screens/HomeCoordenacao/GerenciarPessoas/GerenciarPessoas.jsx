@@ -6,6 +6,12 @@ import Tabela from "../../../components/Tabela/Tabela";
 import "./GerenciarPessoas.css";
 
 import Titulo from "../../../components/Navbar/Titulo";
+import { fetchAutomatico } from '../../components/Funcoes/funcoes.jsx';
+
+fetchAutomatico("http://localhost:8080/GerenciarPessoas", {
+  method: "GET"
+})
+
 
 const GerenciarPessoas = () => {
   const navigate = useNavigate();

@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./AdicionarPessoas.css";
+import { fetchAutomatico } from '../../components/Funcoes/funcoes.jsx';
+
+fetchAutomatico("http://localhost:8080/AdicionarPessoas", {
+  method: "GET"
+})
+
 
 function AdicionarPessoas() {
   const navigate = useNavigate();

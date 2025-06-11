@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Navbar from "../../components/Navbar/navbar";
 import Card from "../../components/CardDeInformacao/card";
 
@@ -8,6 +7,11 @@ import "./HomeCoordenacao.css";
 
 import icon1 from "../../assets/icone-adicionar-pessoas.png";
 import icon2 from "../../assets/atribuir_turmas.png";
+import { fetchAutomatico } from '../../components/Funcoes/funcoes.jsx';
+
+fetchAutomatico("http://localhost:8080/coordenacao", {
+  method: "GET"
+})
 
 function HomeCoordenacao() {
   const navigate = useNavigate();
