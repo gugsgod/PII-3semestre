@@ -9,56 +9,67 @@ import icon1 from "../../../assets/mais.png";
 import "./CategoriaPontuacao.css"
 
 const CategoriaPontuacao = () => {
-  const navigate = useNavigate();
-  const tipo = localStorage.getItem("tipoUsuario");
+    const navigate = useNavigate();
+    const tipo = localStorage.getItem("tipoUsuario");
 
-  useEffect(() => {
-    if (tipo !== "professor") {
-      navigate("/");
-    }
-  }, [tipo, navigate]);
+    useEffect(() => {
+        fetchAutomatico("http://localhost:8080/jwtprofessor")
+            .then(res => {
+                if (!res.ok) throw new Error("Não autorizado");
+                return res.text();
+            })
+            .then(data => {
+                console.log("Resposta:", data);
+            })
+            .catch(err => {
+                console.error("Erro:", err);
+                alert("Acesso não autorizado");
+                navigate("/");
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
+            });
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
+
+    const handleVoltarClick = () => {
+        navigate("/Professor");
     };
-  }, []);
 
-  const handleVoltarClick = () => {
-    navigate("/Professor");
-  };
-
-  return (
-    <div>
-        <Titulo titulo="Editar Categorias e atividades" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
-        <div className='categoria-background'>
-            <div className="flex items-center justify-center w-full gap-48">
-                <div className="flex flex-col gap-14">
-                    <Card
-                        titulo="Categorias de Pontuação"
-                        descricao="Gerencie as categorias de pontuação para suas atividades."
-                        icon={icon1}
-                        label={"Criar Atividade"}
-                        onClick={() => navigate("/CriarAtividades")}
-                        size="small"
-                    />
-                    <Card
-                        titulo="Atividades"
-                        descricao="Gerencie as atividades associadas às categorias de pontuação."
-                        icon={icon1}
-                        label={"Criar Categorias"}
-                        onClick={() => navigate("/CriarCategoria")}
-                        size="small"
-                    />
-                </div>
-                <div className="overflow-y-auto h-[50vh] w-[50vw]">
-                    <Tabela titulo="Atividades e categorias" atividade1="Bom comportamento" atividade2="Atividade 1- História" atividade3="Apresentação Filosofia"/>	
+    return (
+        <div>
+            <Titulo titulo="Editar Categorias e atividades" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+            <div className='categoria-background'>
+                <div className="flex items-center justify-center w-full gap-48">
+                    <div className="flex flex-col gap-14">
+                        <Card
+                            titulo="Categorias de Pontuação"
+                            descricao="Gerencie as categorias de pontuação para suas atividades."
+                            icon={icon1}
+                            label={"Criar Atividade"}
+                            onClick={() => navigate("/CriarAtividades")}
+                            size="small"
+                        />
+                        <Card
+                            titulo="Atividades"
+                            descricao="Gerencie as atividades associadas às categorias de pontuação."
+                            icon={icon1}
+                            label={"Criar Categorias"}
+                            onClick={() => navigate("/CriarCategoria")}
+                            size="small"
+                        />
+                    </div>
+                    <div className="overflow-y-auto h-[50vh] w-[50vw]">
+                        <Tabela titulo="Atividades e categorias" atividade1="Bom comportamento" atividade2="Atividade 1- História" atividade3="Apresentação Filosofia"/>	
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 };
 
 export default CategoriaPontuacao;

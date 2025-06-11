@@ -1,12 +1,10 @@
-package main
+package services
 
 import (
-	"context"
 	"database/sql"
-	"encoding/json"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	"net/http"
 	"os"
 	"strings"
 	"time"
@@ -42,7 +40,6 @@ func criarToken(role, nome, email string) string {
 	if err != nil {
 		return ""
 	}
-
 	return tokenString
 }
 
@@ -65,22 +62,20 @@ func validarToken(tokenString string) (*jwt.MapClaims, error) {
 	}
 }
 
-func middlewareAutenticacao(next http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		authHeader := r.Header.Get("Authorization")
+func middlewareAutenticacao() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		authHeader := c.GetHeader("Authorization")
 		tokenString := strings.TrimPrefix(authHeader, "Bearer ")
-		fmt.Println("Authorization Header:", authHeader)
-		fmt.Println("Token extraído:", tokenString)
+
 		claims, err := validarToken(tokenString)
 		if err != nil {
-			http.Error(w, "Token inválido ou não autorizado", http.StatusUnauthorized)
+			c.JSON(401, gin.H{"error": "Token inválido ou não autorizado"})
+			c.Abort()
 			return
 		}
 
-		ctx := context.WithValue(r.Context(), "claims", claims)
-		r = r.WithContext(ctx)
-
-		next(w, r)
+		c.Set("claims", claims)
+		c.Next()
 	}
 }
 
@@ -89,51 +84,50 @@ type Credenciais struct {
 	Password string `json:"password"`
 }
 
-func loginHandler(w http.ResponseWriter, r *http.Request) {
+func loginHandler(c *gin.Context) {
 	var cred Credenciais
-	err := json.NewDecoder(r.Body).Decode(&cred)
-	if err != nil {
-		http.Error(w, "JSON inválido", http.StatusBadRequest)
+	if err := c.ShouldBindJSON(&cred); err != nil {
+		c.JSON(400, gin.H{"error": "JSON inválido"})
 		return
 	}
 
-	var role string
-	var nome string
-	err = db.QueryRow("SELECT role, nome FROM propriedades_id WHERE email=? AND password=?", cred.Email, cred.Password).Scan(&role, &nome)
-
+	var role, nome string
+	err := db.QueryRow("SELECT role, nome FROM propriedades_id WHERE email=? AND password=?", cred.Email, cred.Password).Scan(&role, &nome)
 	if err != nil {
-		http.Error(w, "Credenciais inválidas", http.StatusUnauthorized)
+		c.JSON(401, gin.H{"error": "Credenciais inválidas"})
 		return
 	}
 
 	token := criarToken(role, nome, cred.Email)
 	if token == "" {
-		http.Error(w, "Erro ao criar token", http.StatusInternalServerError)
+		c.JSON(500, gin.H{"error": "Erro ao criar token"})
 		return
 	}
 
-	json.NewEncoder(w).Encode(map[string]string{
-		"token": token,
-		"nome":  nome,
-	})
+	c.JSON(200, gin.H{"token": token, "nome": nome})
 }
 
-func rotaCoordenacao(w http.ResponseWriter, r *http.Request) {
-	claims := r.Context().Value("claims").(*jwt.MapClaims)
+func rotaComPermissao(permissao string) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		claims, _ := c.Get("claims")
+		mapClaims := (*claims.(*jwt.MapClaims))
 
-	if (*claims)["role"] != "admin" {
-		http.Error(w, "Acesso negado, apenas administracao", http.StatusForbidden)
-		return
+		if mapClaims["role"] != permissao {
+			c.JSON(403, gin.H{"error": "Acesso negado"})
+			return
+		}
+
+		c.JSON(200, gin.H{"mensagem": "Acesso autorizado"})
 	}
-
-	fmt.Fprintln(w, "Bem-vindo")
 }
 
 func main() {
-	http.HandleFunc("/login", loginHandler)
-	// Rotas ficticias para exemplo
-	http.HandleFunc("/coordenacao", middlewareAutenticacao(rotaCoordenacao))
-	http.HandleFunc("/AdicionarPeassoas", middlewareAutenticacao(rotaCoordenacao))
-	http.HandleFunc("/GerenciarPessoas", middlewareAutenticacao(rotaCoordenacao))
-	http.ListenAndServe(":8080", nil)
+	r := gin.Default()
+
+	r.POST("/jwtlogin", loginHandler)
+
+	r.GET("/jwtcoordenacao", middlewareAutenticacao(), rotaComPermissao("admin"))
+	r.GET("/jwtprofessor", middlewareAutenticacao(), rotaComPermissao("professor"))
+	r.GET("/jwtaluno", middlewareAutenticacao(), rotaComPermissao("aluno"))
+
 }
