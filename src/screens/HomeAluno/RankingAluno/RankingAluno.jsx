@@ -35,25 +35,27 @@ function RankingAluno() {
 
     if (rankingVisivel === null) {
 
-    
-    return (
-        <div className="ranking-container">
-            <div className="ranking-box">
-                <div className="ranking-header">Sua posição no ranking</div>
-                <div className="ranking-content">
-                    <div className="ranking-item">3°</div>
-                    <div className="ranking-item">Gustavo Noronha Bomfim</div>
-                    <div className="ranking-item">15</div>
+
+        return (
+            <div className="ranking-page">
+                <div className="ranking-container">
+                    <div className="ranking-box">
+                        <div className="ranking-header">Sua posição no ranking</div>
+                        <div className="ranking-content">
+                            <div className="ranking-item">3°</div>
+                            <div className="ranking-item">Gustavo Noronha Bomfim</div>
+                            <div className="ranking-item">15</div>
+                        </div>
+                    </div>
+                    <div className="ranking-bar">
+                        <div className="bar red"></div>
+                        <div className="bar blue"></div>
+                        <div className="bar yellow"></div>
+                    </div>
                 </div>
             </div>
-            <div className="ranking-bar">
-                <div className="bar red"></div>
-                <div className="bar blue"></div>
-                <div className="bar yellow"></div>
-            </div>
-        </div>
-    );
-}
+        );
+    }
 
     if (!rankingVisivel) {
         return (
