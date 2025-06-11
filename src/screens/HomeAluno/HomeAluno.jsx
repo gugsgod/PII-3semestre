@@ -6,7 +6,7 @@ import Card from '../../components/CardDeInformacao/card';
 
 import icon1 from "../../assets/Atividadedes_icone.png"
 import icon2 from "../../assets/ranking.png"
-
+import { fetchAutomatico } from '../../components/Funcoes/funcoes';
 
 import "./HomeAluno.css"
 
