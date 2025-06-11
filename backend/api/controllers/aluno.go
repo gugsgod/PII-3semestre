@@ -19,7 +19,7 @@ func GetAlunos(db *sql.DB, c *gin.Context){
 		return
 	}
 
-	c.IndentedJSON(http.StatusOK, alunos)
+	c.IndentedJSON(http.StatusOK, sliceAlunos)
 }
 
 // GET alunos por turma
