@@ -13,7 +13,7 @@ function Login() {
     const email = document.getElementById("campo-email").value;
     const password = document.getElementById("campo-senha").value;
 
-    fetch("http://localhost:8080/login", {
+    fetch("http://localhost:8080/jwtlogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
