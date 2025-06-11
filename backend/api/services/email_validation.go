@@ -1,4 +1,4 @@
-package main
+package services
 
 import (
 	"crypto/rand"
@@ -116,5 +116,5 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"mensagem": "Email confirmado com sucesso!", "email": email})
 	})
 
-	router.Run(":8080")
 }
+

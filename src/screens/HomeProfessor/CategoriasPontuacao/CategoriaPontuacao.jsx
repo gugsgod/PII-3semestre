@@ -9,21 +9,37 @@ import icon1 from "../../../assets/mais.png";
 import "./CategoriaPontuacao.css"
 
 const CategoriaPontuacao = () => {
-  const navigate = useNavigate();
-  const tipo = localStorage.getItem("tipoUsuario");
+    const navigate = useNavigate();
+    const tipo = localStorage.getItem("tipoUsuario");
 
-  useEffect(() => {
-    if (tipo !== "professor") {
-      navigate("/");
-    }
-  }, [tipo, navigate]);
+    useEffect(() => {
+        fetchAutomatico("http://localhost:8080/jwtprofessor")
+            .then(res => {
+                if (!res.ok) throw new Error("Não autorizado");
+                return res.text();
+            })
+            .then(data => {
+                console.log("Resposta:", data);
+            })
+            .catch(err => {
+                console.error("Erro:", err);
+                alert("Acesso não autorizado");
+                navigate("/");
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
+            });
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
+
+    const handleVoltarClick = () => {
+        navigate("/Professor");
     };
-  }, []);
+
 
   const handleVoltarClick = () => {
     navigate("/Professor");
@@ -54,11 +70,11 @@ const CategoriaPontuacao = () => {
                 </div>
                 <div className="overflow-y-auto h-[50vh] w-[50vw]">
                     <Tabela titulo="Atividades e categorias" atividade1="Bom comportamento - Historia" atividade2="Atividade 1- História" atividade3="Apresentação Filosofia" atividade4="Bom comportamento - Filosofia" atividade5="Entrega no prazo - História"/>	
+
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 };
 
 export default CategoriaPontuacao;

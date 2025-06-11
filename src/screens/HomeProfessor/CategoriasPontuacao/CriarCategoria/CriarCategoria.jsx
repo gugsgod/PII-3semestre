@@ -4,22 +4,33 @@ import { useNavigate } from "react-router-dom";
 import Titulo from "../../../../components/Navbar/Titulo";
 
 const CriarCategoria = () => {
-  const navigate = useNavigate();
-  const tipo = localStorage.getItem("tipoUsuario");
+    const navigate = useNavigate();
+    const tipo = localStorage.getItem("tipoUsuario");
 
-  useEffect(() => {
-    if (tipo !== "professor") {
-      navigate("/");
-    }
-  }, [tipo, navigate]);
+    useEffect(() => {
+        fetchAutomatico("http://localhost:8080/jwtprofessor")
+            .then(res => {
+                if (!res.ok) throw new Error("Não autorizado");
+                return res.text();
+            })
+            .then(data => {
+                console.log("Resposta:", data);
+            })
+            .catch(err => {
+                console.error("Erro:", err);
+                alert("Acesso não autorizado");
+                navigate("/");
 
-  const handleVoltarClick = () => {
-    navigate("/CategoriasPontuacao");
-  };
+            });
+    }, []);
+    const handleVoltarClick = () => {
+        navigate("/CategoriasPontuacao");
+    };
 
-  return (
-    <div>
-        <Titulo titulo="Criar Categoria de Pontuação" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+    return (
+        <div>
+            <Titulo titulo="Criar Categoria de Pontuação" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+
 
         {/* Aqui você pode adicionar o conteúdo da página de criação de categoria */}
         <div className="bg-white">
@@ -37,9 +48,9 @@ const CriarCategoria = () => {
               <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white" onClick={() => navigate("/CategoriasPontuacao")}>Fechar</button>
             </div>
           </div>
+
         </div>
-    </div>
-  );
+    );
 };
 
 export default CriarCategoria;
