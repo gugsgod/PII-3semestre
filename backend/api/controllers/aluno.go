@@ -1,23 +1,43 @@
 package controllers
 
 import(
+	"database/sql"
 	"net/http"
 	"backend/api/models"
+	"backend/api/database"
 	"github.com/gin-gonic/gin"
 )
 
-var alunos = []models.Aluno {
-	{ID: "1", Nome: "Gustavo Versolatto", DataNasc: "06/05/2006"},
-	{ID: "2", Nome: "Gustavo Bomfim", DataNasc: "07/10/2005"},
-	{ID: "3", Nome: "Nicole Macacaretti", DataNasc: "06/05/2006"},
-	{ID: "4", Nome: "Nicholas Carmona", DataNasc: "13/12/2006"},
-	{ID: "5", Nome: "Caio Onha", DataNasc: "04/05/2006"},
-}
+// GET todos os alunos
+func GetAlunos(db *sql.DB, c *gin.Context){
+	sliceAlunos, err = database.Alunos(db) 
 
-func GetAlunos(c *gin.Context){
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error":"erro ao pegar os dados alunos"
+		})
+		return
+	}
+
 	c.IndentedJSON(http.StatusOK, alunos)
 }
 
+// GET alunos por turma
+func GetAlunosTurma(db *slq.DB, c *gin.Context){
+	turma := c.Param("turma")
+	sliceNomes, err := database.AlunosTurma(db, turma)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error":"erro ao pegar os dados alunos de uma turma especifica"
+		})
+		return
+	}
+
+	c.IndentedJSON(http.StatusOK, sliceNomes)
+}
+
+// TEM QUE SER FINALIZADO
+// Nao vai ser muito utilizado
 func PostAlunos(c *gin.Context){
 	var newAluno models.Aluno
 
