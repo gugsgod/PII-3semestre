@@ -1,63 +1,52 @@
+const rankingData = [
+  { pos: '1º', nome: 'Nicole Silva Mascaretti', pontos: 1500 },
+  { pos: '2º', nome: 'Gustavo Versolatto', pontos: 360 },
+  { pos: '3º', nome: 'Gustavo Noronha Bomfim', pontos: 15 },
+];
+
 const Ranking = () => {
   return (
-    // Fundo
-    <div className="w-full max-w-xl bg-gray-200 rounded-t-3xl">
-      {/* Titulo */}
-      <div className="bg-gray-300 rounded-t-3xl px-6 py-4">
-        <h1 className="text-3xl text-gray-700 font-sans text-center">
+      <div className="flex flex-col items-center justify-center px-4">
+        {/* Fundo */}
+      <div className="flex flex-col justify-center bg-gray-300 shadow-lg rounded-2xl w-full max-w-2xl min-h-[400px]">
+        {/* Titulo */}
+        <div className="bg-gray-400 text-center text-xl font-semibold py-4 rounded-t-2xl">
           Ranking de desempenho
-        </h1>
-      </div>
-
-      {/* Tabela */}
-      <div className="overflow-y-auto max-h-[400px]">
-        <table className="min-w-full table-auto">
-          <tbody className="text-center text-xl">
-            <tr className="hover:bg-gray-100">
-              <td className="px-7 py-2 border border-gray-300">1°</td>
-              <td className="px-4 py-2 border border-gray-300">
-                nome bem grande
-              </td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
+        </div>
+        {/* Tabela */}
+        <table className="w-full text-center table-fixed bg-gray-300">
+          <thead>
+            <tr className="">
+              <th className="w-1/6 py-3 text-gray-600 border-r border-gray-400">Posição</th>
+              <th className="w-2/6 py-3 text-gray-600 border-r border-gray-400">Nome</th>
+              <th className="w-1/6 py-3 text-gray-600">Pontos</th>
             </tr>
-
-            <tr className="hover:bg-gray-100">
-              <td className="px-4 py-2 border border-gray-300">2°</td>
-              <td className="px-4 py-2 border border-gray-300">Teste</td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
-            </tr>
-
-            <tr className="hover:bg-gray-100">
-              <td className="px-4 py-2 border border-gray-300">3°</td>
-              <td className="px-4 py-2 border border-gray-300">Teste</td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
-            </tr>
-
-            <tr className="hover:bg-gray-100">
-              <td className="px-4 py-2 border border-gray-300">4°</td>
-              <td className="px-4 py-2 border border-gray-300">Teste</td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
-            </tr>
-
-            <tr className="hover:bg-gray-100">
-              <td className="px-4 py-2 border border-gray-300">5°</td>
-              <td className="px-4 py-2 border border-gray-300">Teste</td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
-            </tr>
-
-            <tr className="hover:bg-gray-100">
-              <td className="px-4 py-2 border border-gray-300">6°</td>
-              <td className="px-4 py-2 border border-gray-300">Teste</td>
-              <td className="px-4 py-2 border border-gray-300">1000</td>
-            </tr>
+          </thead>
+          <tbody>
+            {rankingData.map((item, index) => (
+              <tr key={index} className="border-t border-b border-gray-400">
+                <td className="py-4 font-medium border-r border-r-gray-400 text-gray-800">{item.pos}</td>
+                <td className="py-4 border-r border-r-gray-400 text-gray-800">{item.nome}</td>
+                <td className="py-4 border-l border-gray-400 text-gray-800">{item.pontos}</td>
+              </tr>
+            ))}
+            {[...Array(5 - rankingData.length)].map((_, idx) => (
+              <tr key={`empty-${idx}`} className="h-14 border-b border-gray-400">
+                <td className="border-r border-gray-400">
+                </td>
+                <td className="border-r border-gray-400">
+                </td>
+                <td className="border-l border-gray-400">
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="flex justify-center items-center">
-        <div className="bg-red-500 w-full text-red-500">teste</div>
-        <div className="bg-blue-300 w-full text-blue-300">teste</div>
-        <div className="bg-yellow-300 w-full text-yellow-300">teste</div>
+        <div className="flex justify-between items-center h-2 rounded-b-2xl overflow-hidden">
+          <div className="bg-red-500 h-full w-full sm:w-3/12"></div>
+          <div className="bg-blue-400 h-full  w-full sm:w-6/12"></div>
+          <div className="bg-yellow-400 h-full w-full sm:w-3/12"></div>
+        </div>
       </div>
     </div>
   );
