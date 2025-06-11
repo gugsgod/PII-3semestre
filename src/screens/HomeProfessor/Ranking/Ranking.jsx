@@ -31,7 +31,7 @@ const Ranking = () => {
           </button>
         </div>
         <div>
-          <button className="mr-4 bg-[#253E7D] rounded-2xl p-1 w-36 shadow-lg text-white" onClick={() => navigate("/TelainicialAtribuirPontos")}>
+          <button className="mr-4 bg-[#253E7D] rounded-2xl p-1 w-36 shadow-lg text-white">
             Tornar publico
           </button>
         </div>

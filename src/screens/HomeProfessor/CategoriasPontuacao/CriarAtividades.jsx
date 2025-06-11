@@ -30,26 +30,42 @@ const CriarAtividades = () => {
 
   return (
     <div>
-      <Titulo titulo="Criar Atividades" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+      <Titulo
+        titulo="Criar Atividades"
+        onClickBotao={handleVoltarClick}
+        mostrarBotao={true}
+      />
       <div className="">
         <div className="max-w-[500px] mx-auto mt-10">
-            <form action="">
+          <form action="">
             <label htmlFor="">Nome da atividade</label>
             <input type="text" name="" id="" />
-            </form>
+          </form>
         </div>
         <div className="max-w-[500px] mx-auto mt-20">
-            <label htmlFor="">Atribuir atividade às turmas</label>
+          <label htmlFor="">Atribuir atividade às turmas</label>
         </div>
         <div className="max-w-[500px] mx-auto mt-10 bg-white p-3 shadow-2xl max-h-[30vh] overflow-y-scroll">
-            <AtribuirAtividade />
-            <AtribuirAtividade />
-            <AtribuirAtividade />
-            <AtribuirAtividade />
-            <AtribuirAtividade />
+          <AtribuirAtividade turma="1° Ensino Médio"/>
+          <AtribuirAtividade turma="2° Ensino Médio"/>
+          <AtribuirAtividade turma="3° Ensino Médio"/>
+          <AtribuirAtividade turma="9° ano"/>
+          <AtribuirAtividade turma="8° ano"/>
         </div>
+        <div className="flex justify-between max-w-[500px] mx-auto mt-10">
+          <div>
+            <button className="bg-[#33B1FF] p-2 rounded-3xl w-36 text-white">
+              Salvar
+            </button>
+          </div>
+          <div>
+            <button className="bg-[#253E7D] p-2 rounded-3xl w-36 text-white">
+              Fechar
+            </button>
+          </div>
         </div>
       </div>
+    </div>
   );
 };
 
