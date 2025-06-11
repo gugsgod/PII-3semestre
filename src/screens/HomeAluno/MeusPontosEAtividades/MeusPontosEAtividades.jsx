@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
+import 'jspdf-autotable';
 
 
 import "./MeusPontosEAtividades.css"
@@ -33,7 +33,8 @@ function MeusPontosEAtividades() {
         { descricao: 'Bom comportamento - Sociologia', pontos: 15 },
         { descricao: 'Trabalho em equipe - História', pontos: 20 },
     ];
-
+    
+    const nomeAluno = localStorage.getItem('nomeAluno') || 'Aluno não identificado';
     const totalPontos = atividades.reduce((acc, atividade) => acc + atividade.pontos, 0);
     const emitirRelatorio = () => {
         const doc = new jsPDF();
@@ -42,6 +43,7 @@ function MeusPontosEAtividades() {
         doc.text('Relatório de Pontos', 14, 22);
 
         doc.setFontSize(12);
+        doc.text(`Aluno: ${nomeAluno}`, 14, 30);
         doc.text(`Total de pontos: ${totalPontos}`, 14, 32);
 
         const dadosTabela = atividades.map((a) => [a.descricao, `${a.pontos} pontos`]);
