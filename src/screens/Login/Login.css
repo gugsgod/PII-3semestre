@@ -56,7 +56,7 @@ input {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.7s ease;
 }
 
 /* button {
@@ -72,6 +72,7 @@ input {
 
 button:hover {
   background-color: #274bb3;
+  transition: background-color 0.7s ease;
 }
 
 .forgot-link {
