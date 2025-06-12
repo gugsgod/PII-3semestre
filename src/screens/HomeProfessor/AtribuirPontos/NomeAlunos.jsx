@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 import Titulo from "../../../components/Navbar/Titulo";
 import Nomes from "../../../components/Nomes/Nomes";
-import { AiOutlineWarning } from "react-icons/ai";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AiOutlineWarning, AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
 
