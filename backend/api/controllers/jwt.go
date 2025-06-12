@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"backend/api/models"
-	"backend/api/services"
+	"backend/models"
+	"backend/services"
 	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"backend/api/services"
+	"backend/services"
 	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
