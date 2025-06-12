@@ -5,7 +5,7 @@ import Card from "../../../components/CardDeInformacao/card";
 import Tabela from "../../../components/Tabela/Tabela";
 
 import icon1 from "../../../assets/mais.png";
-import { fetchAutomatico } from '../../components/Funcoes/funcoes';
+import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 import "./CategoriaPontuacao.css"
 
 const CategoriaPontuacao = () => {

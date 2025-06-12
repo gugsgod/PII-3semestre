@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Tabela from "../../../components/Tabela/Tabela";
 
 import "./GerenciarPessoas.css";
-import { fetchAutomatico } from '../../components/Funcoes/funcoes';
+import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 import Titulo from "../../../components/Navbar/Titulo";
 
 

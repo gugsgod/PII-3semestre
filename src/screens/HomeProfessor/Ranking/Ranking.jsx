@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Ranking.css";
 import TabelaRanking from "../../../components/Ranking/Ranking";
 import Titulo from "../../../components/Navbar/Titulo"; // Importando o componente de título
-import { fetchAutomatico } from '../../components/Funcoes/funcoes';
+import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 const Ranking = () => {
     const navigate = useNavigate();
     const tipo = localStorage.getItem("tipoUsuario");

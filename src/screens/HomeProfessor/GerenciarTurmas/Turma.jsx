@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAutomatico } from '../../components/Funcoes/funcoes';
+import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 import Titulo from "../../../components/Navbar/Titulo";
 import Tabela from "../../../components/Tabela/Tabela";
 
@@ -12,22 +12,22 @@ const Turma = () => {
     const turmaSelecionada = localStorage.getItem("turmaSelecionada") || "1° Ensino Médio";
 
 
-    useEffect(() => {
-        fetchAutomatico("http://localhost:8080/jwtprofessor")
-            .then(res => {
-                if (!res.ok) throw new Error("Não autorizado");
-                return res.text();
-            })
-            .then(data => {
-                console.log("Resposta:", data);
-            })
-            .catch(err => {
-                console.error("Erro:", err);
-                alert("Acesso não autorizado");
-                navigate("/");
+    // useEffect(() => {
+    //     fetchAutomatico("http://localhost:8080/jwtprofessor")
+    //         .then(res => {
+    //             if (!res.ok) throw new Error("Não autorizado");
+    //             return res.text();
+    //         })
+    //         .then(data => {
+    //             console.log("Resposta:", data);
+    //         })
+    //         .catch(err => {
+    //             console.error("Erro:", err);
+    //             alert("Acesso não autorizado");
+    //             navigate("/");
 
-            });
-    }, []);
+    //         });
+    // }, []);
     // Tira a scrollbar do body
     useEffect(() => {
         document.body.style.overflow = "hidden";

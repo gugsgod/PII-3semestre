@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAutomatico } from '../../components/Funcoes/funcoes';
+import { fetchAutomatico } from '../../../components/Funcoes/funcoes';
 import "./AdicionarPessoas.css";
 
 function AdicionarPessoas() {
