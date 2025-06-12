@@ -1,4 +1,4 @@
-package db
+package database
 
 import (
 	"backend/models"
@@ -33,4 +33,3 @@ func Categorias(db *sql.DB) ([]models.Categorias, error) {
 	}
 	return sliceCategorias, nil
 }
-
