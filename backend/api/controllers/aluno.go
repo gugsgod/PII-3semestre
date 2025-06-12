@@ -3,8 +3,8 @@ package controllers
 import(
 	"database/sql"
 	"net/http"
-	"backend/api/models"
-	"backend/api/database"
+	"backend/models"
+	"backend/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,6 +25,7 @@ func GetAlunos(db *sql.DB, c *gin.Context){
 // GET alunos por turma
 func GetAlunosTurma(db *sql.DB, c *gin.Context){
 	turma := c.Param("turma")
+
 	sliceNomes, err := database.AlunosTurma(db, turma)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{

@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"backend/api/controllers"
-	"backend/api/database"
+	"backend/controllers"
+	"backend/database"
 )
 
 func main(){

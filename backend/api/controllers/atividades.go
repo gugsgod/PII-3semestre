@@ -3,8 +3,8 @@ package controllers
 import(
 	"database/sql"
 	"net/http"
-	"backend/api/models"
-	"backend/api/database"
+	"backend/models"
+	"backend/database"
 	"github.com/gin-gonic/gin"
 )
 

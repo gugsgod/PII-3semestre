@@ -1,8 +1,8 @@
-package database
+package db
 
 import(
 	"database/sql"
-	"backend/api/models"
+	"backend/models"
 	_ "github.com/go-sql-driver/mysql"
 )
 

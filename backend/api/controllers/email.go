@@ -1,7 +1,8 @@
 package controllers
 
 import (
-	"backend/api/services"
+	"backend/services"
+	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
 	"net/http"
@@ -17,6 +18,7 @@ var (
 func EnviaEmailDeValidacao(c *gin.Context) {
 	type Requisicao struct {
 		Email string `json:"email"`
+		Nome  string `json:"nome"`
 	}
 	var req Requisicao
 	if err := c.BindJSON(&req); err != nil {
@@ -38,7 +40,7 @@ func EnviaEmailDeValidacao(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"mensagem": "Email de confirmação enviado"})
 }
 
-func ValidaUsuario(c *gin.Context) {
+func ValidaUsuario(db *sql.DB, c *gin.Context) {
 	token := c.Query("token")
 
 	mu.Lock()
@@ -47,7 +49,20 @@ func ValidaUsuario(c *gin.Context) {
 		verificados[email] = true
 		senhaGerada := services.GerarSenhaAleatoria()
 		//----------------------- SALVAR NO BANCO AQUI (INSERT)-----------------------
+		stmt, err := db.Prepare("UPDATE users SET senha = ? WHERE email = ?")
+		if err != nil {
+			mu.Unlock()
+			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao preparar consulta SQL"})
+			return
+		}
+		defer stmt.Close()
 
+		_, err = stmt.Exec(senhaGerada, email)
+		if err != nil {
+			mu.Unlock()
+			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao salvar usuário no banco"})
+			return
+		}
 		// ---------------------------------------------------
 		services.EnviarSenha(email, senhaGerada)
 		delete(tokens, token)
