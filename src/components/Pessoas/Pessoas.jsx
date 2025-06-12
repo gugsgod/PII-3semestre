@@ -103,7 +103,7 @@ const Pessoas = (props) => {
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-3xl shadow-2xl">
+    <div className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl">
       <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
         <h1 className="text-2xl text-gray-700 text-center">{props.titulo}</h1>
       </div>

@@ -31,8 +31,17 @@ const AtividadePorTurma = () => {
         };
     }, []);
 
-    const handleTurmaClick = (nomeTurma) => {
-        localStorage.setItem("turmaSelecionada", nomeTurma);
+    const turmas = [
+        { id: 1, nome: "1° Ensino Médio" },
+        { id: 2, nome: "2° Ensino Médio" },
+        { id: 3, nome: "3° Ensino Médio" },
+        { id: 4, nome: "9° Ano" },
+        { id: 5, nome: "8° Ano" }
+    ];
+
+    const handleTurmaClick = (turma) => {
+        localStorage.setItem("turmaSelecionada", turma.nome);
+        localStorage.setItem("idTurmaSelecionada", turma.id);
         navigate("/NomeAlunos");
     };
 
@@ -43,13 +52,12 @@ const AtividadePorTurma = () => {
 
     return (
         <div>
-            <Titulo titulo="Selecione a turma" onClickBotao={handleVoltarClick} mostrarBotao={true}/>
+            <Titulo titulo="Selecione a turma" onClickBotao={handleVoltarClick} mostrarBotao={true} />
             <div className="flex flex-col items-center max-h-[80vh] gap-5 p-10 border-black  overflow-y-scroll">
-                <Turma turma="1° Ensino Médio" onClick={() => handleTurmaClick('1° Ensino Médio')} />
-                <Turma turma="2° Ensino Médio" onClick={() => handleTurmaClick('2° Ensino Médio')} />
-                <Turma turma="3° Ensino Médio" onClick={() => handleTurmaClick('3° Ensino Médio')} />
-                <Turma turma="9° Ano" onClick={() => handleTurmaClick('9° Ano')} />
-                <Turma turma="8° Ano" onClick={() => handleTurmaClick('8° Ano')} />
+                {turmas.map((turma, index) => (
+                    <Turma key={index} turma={turma.nome} onClick={() => handleTurmaClick(turma)} />
+                ))}
+
             </div>
         </div>
     );
