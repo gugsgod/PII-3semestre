@@ -67,7 +67,7 @@ const CategoriaPontuacao = () => {
                         size="small"
                     />
                 </div>
-                <div className="overflow-y-auto">
+                <div className="p-4">
                     <Tabela titulo="Atividades e categorias" atividade1="Bom comportamento - Historia" atividade2="Atividade 1- História" atividade3="Apresentação Filosofia" atividade4="Bom comportamento - Filosofia" atividade5="Entrega no prazo - História"/>	
                 </div>
             </div>
