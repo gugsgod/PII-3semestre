@@ -33,6 +33,25 @@ func TodasAsRotas(db *sql.DB, r *gin.Engine) {
 	r.GET("/turmas", func(c *gin.Context){
 		controllers.GetTurmas(db, c)
 	})
+	// ROTAS POST
+	r.POST("/postatividade", func(c *gin.Context){
+
+	})
+	r.POST("/postcategoria", func(c *gin.Context){
+
+	})
+	r.POST("/removeatividade", func(c *gin.Context){
+
+	})
+	r.POST("/removecategoria", func(c *gin.Context){
+
+	})
+	r.POST("/atribuirnota", func(c *gin.Context){
+
+	})
+	r.POST("/adicionarpontuacao", func(c *gin.Context){
+
+	})
 	// ROTAS VALIDACAO DE EMAIL (E ENVIO DE SENHA)
 	r.GET("/confirmar", func(c *gin.Context) {
 		controllers.ValidaUsuario(db, c)

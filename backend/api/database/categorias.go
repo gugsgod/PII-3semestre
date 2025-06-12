@@ -60,11 +60,13 @@ func AdicionarCategoria(db *sql.DB, c *gin.Context) {
 
 func RemoverCategoria(db *sql.DB, c *gin.Context) {
 	param := c.Param("id")
+
 	id, err := strconv.Atoi(param)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "ID inválido"})
 		return
 	}
+
 	_, err = db.Exec("DELETE FROM categoria WHERE id_pontuacao = ?", id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
