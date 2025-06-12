@@ -19,3 +19,11 @@ func GetCategorias(db *sql.DB, c *gin.Context){
 
 	c.IndentedJSON(http.StatusOK, sliceCategorias)
 }
+
+func PostCategorias(db *sql.DB, c *gin.Context){
+	_ := database.AdicionarCategoria(db, c)
+}
+
+func RemoverCategorias(db *sql.DB, c *gin.Context){
+	_ := database.RemoverCategoria(db , c)
+}
