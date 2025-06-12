@@ -10,8 +10,8 @@ func Categorias(db *sql.DB) ([]models.Categorias, error) {
 	var sliceCategorias []models.Categorias
 
 	query := `
-		SELECT nome, pontos
-		FROM categorias
+		SELECT nome_pontuacao, pontos
+		FROM categoria
 	`
 
 	rows, err := db.Query(query)
