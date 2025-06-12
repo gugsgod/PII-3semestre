@@ -26,10 +26,10 @@
 }
 
 .ranking-box {
-    height: 200px;
-    width: 500px;
-    max-width: 500px;
-    background-color: #0000;
+    height: 700px;
+    width: 800px;
+    max-width: 900px;
+    background-color: #EFEFEF;
     border-radius: 16px 16px 0px 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -49,7 +49,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     text-align: center;
-    background-color: white;
+    background-color: #EFEFEF;
     padding: 50px 0;
     font-size: 18px;
     color: #444;
