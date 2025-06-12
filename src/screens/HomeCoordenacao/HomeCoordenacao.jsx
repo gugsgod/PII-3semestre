@@ -29,10 +29,10 @@ function HomeCoordenacao() {
 
     //         });
     // }, []);
-    // const handleLogout = () => {
-    //     localStorage.clear();
-    //     navigate("/");
-    // };
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/");
+    };
 
     return (
         <div>

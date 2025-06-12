@@ -37,7 +37,7 @@ const GerenciarTurmas = () => {
         navigate('/Turma');
     }
 
-    const handleVoltarClick = () => {
+ const handleVoltarClick = () => {
         localStorage.removeItem('turmaSelecionada');
         navigate('/Professor');
     }
