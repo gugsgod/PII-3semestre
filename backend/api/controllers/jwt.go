@@ -3,6 +3,7 @@ package controllers
 import (
 	"backend/models"
 	"backend/services"
+	"bcrypt"
 	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -35,12 +36,19 @@ func LoginHandler(db *sql.DB, c *gin.Context) {
 		return
 	}
 
-	var role, nome string
-	err := db.QueryRow("SELECT role, nome FROM propriedades_id WHERE email=? AND password=?", cred.Email, cred.Password).Scan(&role, &nome)
-	if err != nil {
+	var role, nome, senhaDoBanco string
+	senha := db.QueryRow("SELECT senha from users WHERE email=?", cred.Email).Scan(&senhaDoBanco)
+	if senha != nil {
+		c.JSON(401, gin.H{"error": "Usuario nao tem senha"})
+		return
+	}
+	comp := bcrypt.CompareHashAndPassword([]byte(senhaDoBanco), []byte(cred.Password))
+	if comp != nil {
 		c.JSON(401, gin.H{"error": "Credenciais inválidas"})
 		return
 	}
+
+	_ = db.QueryRow("SELECT role, nome FROM users WHERE email=?", cred.Email).Scan(&role, &nome)
 
 	token := services.CriarToken(role, nome, cred.Email)
 	if token == "" {
