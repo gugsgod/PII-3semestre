@@ -49,7 +49,7 @@ func ValidaUsuario(db *sql.DB, c *gin.Context) {
 		verificados[email] = true
 		senhaGerada := services.GerarSenhaAleatoria()
 		//----------------------- SALVAR NO BANCO AQUI (INSERT)-----------------------
-		stmt, err := db.Prepare("INSERT INTO users (senha) VALUES (?)")
+		stmt, err := db.Prepare("UPDATE users SET senha = ? WHERE email = ?")
 		if err != nil {
 			mu.Unlock()
 			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao preparar consulta SQL"})
@@ -57,7 +57,7 @@ func ValidaUsuario(db *sql.DB, c *gin.Context) {
 		}
 		defer stmt.Close()
 
-		_, err = stmt.Exec(senhaGerada) // Você pode personalizar o nome e o role se necessário
+		_, err = stmt.Exec(senhaGerada, email)
 		if err != nil {
 			mu.Unlock()
 			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao salvar usuário no banco"})

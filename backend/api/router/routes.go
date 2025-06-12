@@ -10,7 +10,7 @@ import (
 func todasAsRotas(db *sql.DB, r *gin.Engine) {
 	// ROTAS VALIDACAO DE EMAIL (E ENVIO DE SENHA)
 	r.GET("/confirmar", func(c *gin.Context) {
-		controllers.ValidaUsuario(c)
+		controllers.ValidaUsuario(db, c)
 	})
 	r.GET("/registrar", func(c *gin.Context) {
 		controllers.EnviaEmailDeValidacao(c)
