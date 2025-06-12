@@ -17,3 +17,8 @@
     opacity: 0.4;
     z-index: -1;
 }
+
+.overflow-y-auto {
+    height: 800px;
+    width: 800px;
+}

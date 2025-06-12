@@ -9,7 +9,7 @@ const Tabela = (props) => {
         <h1 className="text-3xl text-gray-700 text-center">{props.titulo}</h1>
       </div>
 
-      <div className="px-6 py-6 space-y-4 max-h-64 overflow-auto">
+      <div className="px-6 py-6 space-y-4 overflow-auto">
         <table className="min-w-full table-auto">
           <tbody>
             <tr className="hover:bg-gray-50">
