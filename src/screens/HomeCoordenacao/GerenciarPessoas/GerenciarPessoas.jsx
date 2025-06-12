@@ -35,10 +35,13 @@ const GerenciarPessoas = () => {
             document.body.style.overflow = "auto";
         };
     }, []);
-
+    const handleVoltarClick = () => {
+        localStorage.removeItem('turmaSelecionada');
+        navigate('/Coordenacao');
+    }
     return (
         <div className="overflow-hidden">
-            <Titulo titulo="Pessoas cadastradas" />
+            <Titulo titulo="Pessoas cadastradas" onClickBotao={handleVoltarClick} mostrarBotao={true} />
             <div className="gerenciar-page">
                 <div className="flex justify-center gap-10">
                     <div className="overflow-x-auto">
