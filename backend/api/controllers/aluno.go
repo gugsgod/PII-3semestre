@@ -24,15 +24,15 @@ func GetAlunos(db *sql.DB, c *gin.Context){
 
 // GET alunos por turma
 func GetAlunosTurma(db *sql.DB, c *gin.Context){
-	param := c.Param("turma")
-	
+	param := c.Param("idturma")
+
 	// converte string em int
 	turma , err := strconv.Atoi(param)
-    if err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "ID inválido"})
-        return
-    }
-	
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "ID inválido"})
+		return
+	}
+
 	//ativa func da database
 	sliceNomes, err := database.AlunosTurma(db, turma)
 	if err != nil {

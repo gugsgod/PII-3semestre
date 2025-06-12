@@ -5,6 +5,7 @@ import(
 	"net/http"
 	"backend/database"
 	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 func GetAtividades(db *sql.DB, c *gin.Context){
@@ -20,7 +21,13 @@ func GetAtividades(db *sql.DB, c *gin.Context){
 }
 
 func GetAtividadesPorTurma(db *sql.DB, c *gin.Context){
-	turma := c.Param("turma")
+	turmaStr := c.Param("idturma")
+
+	turma, err := strconv.Atoi(turmaStr)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error":"Turma invalida"})
+		return
+	}
 
 	sliceAtividades, err := database.AtividadesTurma(db, turma)
 

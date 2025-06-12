@@ -12,13 +12,13 @@ func TodasAsRotas(db *sql.DB, r *gin.Engine) {
 	r.GET("/alunos", func(c *gin.Context){
 		controllers.GetAlunos(db, c)
 	})
-	r.GET("/alunosturma", func(c *gin.Context){
+	r.GET("/alunosturma/:idturma", func(c *gin.Context){
 		controllers.GetAlunosTurma(db, c)
 	})
 	r.GET("/atividades", func(c *gin.Context){
 		controllers.GetAtividades(db, c)
 	})
-	r.GET("/atividadesturma", func(c *gin.Context){
+	r.GET("/atividadesturma/:idturma", func(c *gin.Context){
 		controllers.GetAtividadesPorTurma(db, c)
 	})
 	r.GET("/categoria", func(c *gin.Context){
@@ -27,7 +27,7 @@ func TodasAsRotas(db *sql.DB, r *gin.Engine) {
 	r.GET("/pontuacao", func(c *gin.Context){
 		controllers.GetNomeEPontuacao(db, c)
 	})
-	r.GET("/pontuacaoaluno", func(c *gin.Context){
+	r.GET("/pontuacaoaluno/:id", func(c *gin.Context){
 		controllers.GetPontuacaoPorAluno(db,c)
 	})
 	r.GET("/turmas", func(c *gin.Context){
