@@ -5,6 +5,7 @@ import(
 	"database/sql"
 	"backend/database"
 	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 // GET nomes e pontuacoes
@@ -23,7 +24,14 @@ func GetNomeEPontuacao(db *sql.DB, c *gin.Context){
 
 // GET pontuacao por aluno (nome e pontuacao de um aluno so)
 func GetPontuacaoPorAluno(db *sql.DB, c *gin.Context){
-	id := c.Param("id")
+	idStr := c.Param("id")
+
+	id, err := strconv.Atoi(idStr)
+    if err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": "ID inválido"})
+		return
+    }
+
 	pontos , err := database.PontosPorIDAluno(db, id)
 
 	if err != nil{
