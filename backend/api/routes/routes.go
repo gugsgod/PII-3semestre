@@ -35,22 +35,22 @@ func TodasAsRotas(db *sql.DB, r *gin.Engine) {
 	})
 	// ROTAS POST
 	r.POST("/postatividade", func(c *gin.Context){
-
+		controllers.PostAtividades(db, c)
 	})
 	r.POST("/postcategoria", func(c *gin.Context){
-
+		controllers.PostCategorias(db, c)
 	})
 	r.POST("/removeatividade", func(c *gin.Context){
-
+		controllers.RemoveAtividades(db, c)
 	})
 	r.POST("/removecategoria", func(c *gin.Context){
-
+		controllers.RemoverCategorias(db, c)
 	})
 	r.POST("/atribuirnota", func(c *gin.Context){
 
 	})
 	r.POST("/adicionarpontuacao", func(c *gin.Context){
-
+		controllers.PostPontuacao(db, c)
 	})
 	// ROTAS VALIDACAO DE EMAIL (E ENVIO DE SENHA)
 	r.GET("/confirmar", func(c *gin.Context) {

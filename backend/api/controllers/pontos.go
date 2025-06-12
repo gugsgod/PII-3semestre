@@ -46,5 +46,5 @@ func GetPontuacaoPorAluno(db *sql.DB, c *gin.Context){
 
 //PARA SER FEITO
 func PostPontuacao(db *sql.DB, c *gin.Context){
-	return
+	database.AdicionarPontuacao(db, c)
 }

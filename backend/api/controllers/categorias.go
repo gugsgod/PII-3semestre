@@ -21,9 +21,9 @@ func GetCategorias(db *sql.DB, c *gin.Context){
 }
 
 func PostCategorias(db *sql.DB, c *gin.Context){
-	_ := database.AdicionarCategoria(db, c)
+	database.AdicionarCategoria(db, c)
 }
 
 func RemoverCategorias(db *sql.DB, c *gin.Context){
-	_ := database.RemoverCategoria(db , c)
+	database.RemoverCategoria(db , c)
 }

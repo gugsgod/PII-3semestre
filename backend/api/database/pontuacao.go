@@ -58,7 +58,7 @@ func PontosPorIDAluno(db *sql.DB, id int) (models.NomePontos, error) {
 	return resultado, nil
 }
 
-func adicionarPontuacao(db *sql.DB, c *gin.Context) {
+func AdicionarPontuacao(db *sql.DB, c *gin.Context) {
 	type Pontuacao struct {
 		IdUsuario int64  `json:"id_usuario"`
 		Nome      string `json:"nome"`

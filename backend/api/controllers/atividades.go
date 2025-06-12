@@ -40,3 +40,10 @@ func GetAtividadesPorTurma(db *sql.DB, c *gin.Context){
 
 	c.IndentedJSON(http.StatusOK, sliceAtividades)
 }
+
+func PostAtividades(db *sql.DB, c *gin.Context){
+	database.AdicionarAtividade(db, c)
+}
+func RemoveAtividades(db *sql.DB, c *gin.Context){
+	database.RemoverAtividade(db, c)
+}

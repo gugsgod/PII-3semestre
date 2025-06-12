@@ -1,9 +1,11 @@
 package models
 
 type Aluno struct {
-	ID				string `json:"id"`
+	ID			int `json:"id"`
 	Nome 			string `json:"nome"`
-	DataNasc		string `json:"dataNasc"`
+	ID_TURMA		string `json:"id_turma"`
+	FUNCAO			string `json:"funcao"`
+	EMAIL			string `json:"email"`
 }
 
 type NomeAluno struct{
