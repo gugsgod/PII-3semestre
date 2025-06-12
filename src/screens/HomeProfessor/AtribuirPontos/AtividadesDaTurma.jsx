@@ -71,7 +71,7 @@ const AtividadesDaTurma = () => {
                     </div>
                 ) : (
                     categorias.map((categoria, index) => (
-                        <Pontos key={index} atividade={categoria.nome} />
+                        <Pontos key={index} atividade={categoria.nome} idCategoria={categoria.id} />
                     ))
                 )}
 
