@@ -114,7 +114,7 @@ const Pessoas = (props) => {
             {alunos.map((nome, index) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td
-                  className="px-4 py-2 border-b cursor-pointer text-blue-700 hover:underline"
+                  className="px-4 py-2 border-b cursor-pointer"
                   onClick={() => handleClick(nome)}
                 >
                   {nome}
