@@ -35,10 +35,10 @@ func Atividades(db *sql.DB) ([]models.Atividades, error){
 	return sliceAtividades, nil
 }
 
-func AtividadesTurma(db *sql.DB, turma string) (string, error){
+func AtividadesTurma(db *sql.DB, turma int) ([]models.Atividades, error){
 	var sliceAtividades []models.Atividades
 
-	query = `
+	query := `
 		SELECT id_atividade, nome_atividade
 		FROM atividades
 		WHERE id_turma = ?
@@ -48,7 +48,7 @@ func AtividadesTurma(db *sql.DB, turma string) (string, error){
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close
+	defer rows.Close()
 	
 	for rows.Next(){
 		var resultado models.Atividades
