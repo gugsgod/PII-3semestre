@@ -9,7 +9,7 @@ import(
 )
 
 // GET nomes e pontuacoes
-func GetNomeEPontuacao(db *slq.DB, c *gin.Context){
+func GetNomeEPontuacao(db *sql.DB, c *gin.Context){
 	slicePontuacoes, err := database.NomePontuacao(db)
 
 	if err != nil{
@@ -23,7 +23,7 @@ func GetNomeEPontuacao(db *slq.DB, c *gin.Context){
 }
 
 // GET pontuacao por aluno (nome e pontuacao de um aluno so)
-func GetPontuacaoPorAluno(db *slq.DB, c *gin.Context){
+func GetPontuacaoPorAluno(db *sql.DB, c *gin.Context){
 	id := c.Param("id")
 	pontos , err := database.PontosPorIDAluno(db, id)
 
