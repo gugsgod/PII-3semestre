@@ -55,13 +55,12 @@
     color: #444;
     border-radius: 0 0 16px 16px;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    
 }
 
 .ranking-bar {
     display: flex;
     width: 100%;
-    max-width: 500px;
+    max-width: 900px;
 }
 
 .bar {

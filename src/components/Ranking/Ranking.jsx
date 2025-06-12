@@ -17,11 +17,11 @@ const TabelaRanking = () => {
           <div className="ranking-item">{item.pontos}</div>
         </div>
       ))}
-      <div className="ranking-bar1">
-        <div className="bar red"></div>
-        <div className="bar blue"></div>
-        <div className="bar yellow"></div>
-      </div>
+    <div className="ranking-bar1">
+      <div className="bar red"></div>
+      <div className="bar blue"></div>
+      <div className="bar yellow"></div>
+    </div>
     </div>
   );
 };
