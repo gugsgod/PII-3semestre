@@ -37,7 +37,7 @@ func Categorias(db *sql.DB) ([]models.Categorias, error) {
 	return sliceCategorias, nil
 }
 
-func adicionarCategoria(db *sql.DB, c *gin.Context) {
+func AdicionarCategoria(db *sql.DB, c *gin.Context) {
 	type Categoria struct {
 		ID     int64  `json:"id_pontuacao"`
 		Nome   string `json:"nome_pontuacao"`
@@ -58,7 +58,7 @@ func adicionarCategoria(db *sql.DB, c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "categoria adicionada"})
 }
 
-func removerCategoria(db *sql.DB, c *gin.Context) {
+func RemoverCategoria(db *sql.DB, c *gin.Context) {
 	param := c.Param("id")
 	id, err := strconv.Atoi(param)
 	if err != nil {
