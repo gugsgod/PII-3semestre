@@ -1,8 +1,38 @@
 import { useState } from "react";
-import icon1 from "../../assets/popup_botao.png"; // Importando o ícone de atribuir pontos
+import icon1 from "../../assets/popup_botao.png";
 
 const Nomes = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [materia, setMateria] = useState("");
+  const [atividade, setAtividade] = useState("");
+  const [nota, setNota] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8080/atribuir-nota", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          materia,
+          atividade,
+          nota,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Erro ao atribuir nota");
+
+      // Sucesso
+      alert("Nota atribuída com sucesso!");
+      setIsOpen(false);
+    } catch (error) {
+      alert("Falha ao atribuir nota.");
+      console.error("Erro ao enviar:", error);
+    }
+  };
 
   return (
     <div className="border-b-2 w-full border-gray-300 p-5">
@@ -25,16 +55,19 @@ const Nomes = (props) => {
                 </h1>
               </div>
 
-              {/* Formulário e botões */}
-              <form className="flex flex-col items-center gap-6 p-10">
-                {/* Caixa de seleção de matéria */}
+              {/* Formulário */}
+              <form
+                className="flex flex-col items-center gap-6 p-10"
+                onSubmit={handleSubmit}
+              >
+                {/* Matéria */}
                 <div className="w-full max-w-md">
-                  <label htmlFor="materia" className="block mb-1">
-                    Matéria
-                  </label>
+                  <label className="block mb-1">Matéria</label>
                   <select
-                    id="materia"
+                    value={materia}
+                    onChange={(e) => setMateria(e.target.value)}
                     className="w-full border border-gray-600 p-2 rounded-md"
+                    required
                   >
                     <option value="">Selecione a matéria</option>
                     <option value="matematica">Matemática</option>
@@ -44,14 +77,14 @@ const Nomes = (props) => {
                   </select>
                 </div>
 
-                {/* Caixa de seleção de atividade */}
+                {/* Atividade */}
                 <div className="w-full max-w-md">
-                  <label htmlFor="atividade" className="block mb-1">
-                    Nome da atividade
-                  </label>
+                  <label className="block mb-1">Nome da atividade</label>
                   <select
-                    id="atividade"
+                    value={atividade}
+                    onChange={(e) => setAtividade(e.target.value)}
                     className="w-full border border-gray-600 p-2 rounded-md"
+                    required
                   >
                     <option value="">Selecione a atividade</option>
                     <option value="atividade1">Atividade 1</option>
@@ -60,15 +93,15 @@ const Nomes = (props) => {
                   </select>
                 </div>
 
-                {/* Campo de nota */}
+                {/* Nota */}
                 <div className="w-full max-w-md">
-                  <label htmlFor="nota" className="block mb-1">
-                    Nota do aluno
-                  </label>
+                  <label className="block mb-1">Nota do aluno</label>
                   <input
-                    id="nota"
                     type="text"
+                    value={nota}
+                    onChange={(e) => setNota(e.target.value)}
                     className="w-full border border-gray-600 p-2 rounded-md"
+                    required
                   />
                 </div>
 
@@ -90,7 +123,6 @@ const Nomes = (props) => {
                     Fechar
                   </button>
                 </div>
-
               </form>
             </div>
           </div>

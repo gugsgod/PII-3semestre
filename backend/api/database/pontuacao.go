@@ -1,4 +1,4 @@
-package db
+package database
 
 import(
 	"database/sql"
@@ -50,7 +50,7 @@ func PontosPorIDAluno(db *sql.DB, id int) (models.NomePontos, error){
 	err := row.Scan(&resultado.NOME, &resultado.PONTOS) 
 
 	if err != nil {
-		return nil, err
+		return models.NomePontos{}, err
 	}
 
 	return resultado, nil
