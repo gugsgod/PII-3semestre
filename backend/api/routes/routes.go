@@ -7,7 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func todasAsRotas(db *sql.DB, r *gin.Engine) {
+func TodasAsRotas(db *sql.DB, r *gin.Engine) {
 	// ROTAS VALIDACAO DE EMAIL (E ENVIO DE SENHA)
 	r.GET("/confirmar", func(c *gin.Context) {
 		controllers.ValidaUsuario(db, c)

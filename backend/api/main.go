@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"backend/controllers"
 	"backend/database"
+	"backend/routes"
 )
 
 func main(){
@@ -14,6 +15,7 @@ func main(){
 
 	r := gin.Default()
 
+	routes.TodasAsRotas(db, r)
 	r.GET("/alunos", func(c *gin.Context){
 		controllers.GetAlunos(db, c)
 	})
