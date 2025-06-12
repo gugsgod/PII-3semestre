@@ -66,10 +66,16 @@ function MeusPontosEAtividades() {
 
         doc.save('relatorio-de-pontos.pdf');
     };
-
+    const handleVoltarClick = () => {
+        localStorage.removeItem('turmaSelecionada');
+        navigate('/aluno');
+    }
     return (
 
         <div className="fundo-painel">
+            <div className="ms-4 mt-4 flex justify-start text-center p-1">
+                <button className="absolute top-4 left-4 bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg hover:text-white" onClick={handleVoltarClick}>Voltar</button>
+            </div>
             <div className="painel-box">
                 <h1 className="painel-titulo">Meus pontos e atividades</h1>
 
