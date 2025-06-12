@@ -7,6 +7,27 @@ const Nomes = (props) => {
   const [atividade, setAtividade] = useState("");
   const [nota, setNota] = useState("");
 
+  const atividadesPorMateria = {
+    matematica: [
+      { id: 1, nome: "Equações do 1º grau" },
+      { id: 2, nome: "Geometria plana" }
+    ],
+    portugues: [
+      { id: 3, nome: "Interpretação de texto" },
+      { id: 4, nome: "Figuras de linguagem" }
+    ],
+    historia: [
+      { id: 5, nome: "Brasil Império" },
+      { id: 6, nome: "Revolução Francesa" }
+    ],
+    ciencias: [
+      { id: 7, nome: "Células" },
+      { id: 8, nome: "Sistema solar" }
+    ]
+  };
+
+  const atividadesDisponiveis = atividadesPorMateria[materia] || [];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -17,10 +38,11 @@ const Nomes = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          materia,
-          atividade,
-          nota,
+          id_usuario: props.idAluno,
+          id_atividade: atividade,
+          nota: parseFloat(nota),
         }),
+
       });
 
       if (!response.ok) throw new Error("Erro ao atribuir nota");
@@ -36,7 +58,7 @@ const Nomes = (props) => {
 
   return (
     <div className="border-b-2 w-full border-gray-300 p-5">
-      <h1 className="text-lg text-gray-700 h-[2vh]">{props.atividade}</h1>
+      <h1 className="text-lg text-gray-700 h-[2vh]">{props.nome}</h1>
       <div className="flex justify-end">
         <button
           className="hover:bg-white h-[5vh]"
@@ -87,11 +109,12 @@ const Nomes = (props) => {
                     required
                   >
                     <option value="">Selecione a atividade</option>
-                    <option value="atividade1">Atividade 1</option>
-                    <option value="atividade2">Atividade 2</option>
-                    <option value="atividade3">Atividade 3</option>
+                    {atividadesDisponiveis.map((a) => (
+                      <option key={a.id} value={a.id}>{a.nome}</option>
+                    ))}
                   </select>
                 </div>
+
 
                 {/* Nota */}
                 <div className="w-full max-w-md">

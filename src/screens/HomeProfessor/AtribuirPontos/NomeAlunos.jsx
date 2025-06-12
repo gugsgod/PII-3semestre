@@ -74,7 +74,11 @@ const NomeAlunos = () => {
 
                 ) : (
                     alunos.map((aluno, index) => (
-                        <Nomes key={index} atividade={aluno.nome} alunos={[]} />
+                        <Nomes
+                            key={index}
+                            nome={aluno.nome}
+                            idAluno={aluno.id} 
+                        />
                     ))
                 )}
 
