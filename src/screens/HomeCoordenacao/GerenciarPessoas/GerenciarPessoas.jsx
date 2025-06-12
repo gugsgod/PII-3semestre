@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Tabela from "../../../components/Tabela/Tabela";
 import Pessoas from "../../../components/Pessoas/Pessoas";
+import Professor from "../../../components/Pessoas/Professores";
 
 import "./GerenciarPessoas.css";
 
@@ -52,7 +53,7 @@ const GerenciarPessoas = () => {
                         nome4="Gustavo Noronha Bomfim"
                         nome5="Pietro Maffesoni"
                     />
-                    <Pessoas
+                    <Professor
                         titulo="Professores Cadastrados"
                         nome1="Caio Onha Ferreira"
                         nome2="Nicole Silva Mascaretti"
