@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Tabela from "../../../components/Tabela/Tabela";
+import Pessoas from "../../../components/Pessoas/Pessoas";
 
 import "./GerenciarPessoas.css";
 
@@ -44,22 +45,21 @@ const GerenciarPessoas = () => {
             <Titulo titulo="Pessoas cadastradas" onClickBotao={handleVoltarClick} mostrarBotao={true} />
             <div className="gerenciar-page">
                 <div className="flex justify-center gap-10">
-                    <div className="overflow-x-auto">
-                        <Tabela
-                            titulo="Alunos Cadastrados"
-                            atividade1="Caio Onha Ferreira"
-                            atividade2="Nicole Silva Mascaretti"
-                            atividade3="Gustavo Noronha Bomfim"
-                        />
-                    </div>
-                    <div className="overflow-x-auto">
-                        <Tabela
-                            titulo="Professores Cadastrados"
-                            atividade1="Caio Onha Ferreira"
-                            atividade2="Nicole Silva Mascaretti"
-                            atividade3="Gustavo Noronha Bomfim"
-                        />
-                    </div>
+                    <Pessoas
+                        titulo="Alunos Cadastrados"
+                        nome1="Nicole Mascaretti"
+                        nome2="Caio Onha Ferreira"
+                        nome4="Gustavo Noronha Bomfim"
+                        nome5="Pietro Maffesoni"
+                    />
+                    <Pessoas
+                        titulo="Professores Cadastrados"
+                        nome1="Caio Onha Ferreira"
+                        nome2="Nicole Silva Mascaretti"
+                        nome3="Gustavo Noronha Bomfim"
+                        nome4="Ana Clara"
+                        nome5="Roberto Carlos"
+                    />
                 </div>
             </div>
         </div>
