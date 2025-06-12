@@ -42,7 +42,7 @@ function AdicionarPessoas() {
     const validarEmail = (email) => {
         return (
             email.endsWith("@p4ed.com") ||
-                email.endsWith("@sistemapoliedro.com.br")
+            email.endsWith("@sistemapoliedro.com.br")
         );
     };
 
@@ -79,9 +79,9 @@ function AdicionarPessoas() {
         }
 
         // Salvar (simulação!!!)
-        const novaPessoa = { 
-            nome, 
-            email, 
+        const novaPessoa = {
+            nome,
+            email,
             atribuirTurma,
             turmas: atribuirTurma ? turmasSelecionadas : []
         };
@@ -98,9 +98,15 @@ function AdicionarPessoas() {
 
         alert("Pessoa cadastrada com sucesso!");
     };
-
+    const handleVoltarClick = () => {
+        localStorage.removeItem('turmaSelecionada');
+        navigate('/coordenacao');
+    }
     return (
         <div className="adicionar-page">
+            <div className="ms-4 mt-4 flex justify-start text-center p-1">
+                <button className="absolute top-4 right-4 bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg hover:text-white" onClick={handleVoltarClick}>Voltar</button>
+            </div>
             <div className="w-full max-w-xl bg-white rounded-3xl shadow-lg">
                 {/*Título*/}
                 <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
