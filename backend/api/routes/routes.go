@@ -8,6 +8,54 @@ import (
 )
 
 func TodasAsRotas(db *sql.DB, r *gin.Engine) {
+	// GET PARA PAGINA
+	r.GET("/alunos", func(c *gin.Context){
+		controllers.GetAlunos(db, c)
+	})
+	r.GET("/alunosturma", func(c *gin.Context){
+		controllers.GetAlunosTurma(db, c)
+	})
+	r.GET("/atividades", func(c *gin.Context){
+		controllers.GetAtividades(db, c)
+	})
+	r.GET("/atividadesturma", func(c *gin.Context){
+		controllers.GetAtividadesPorTurma
+	})
+	r.GET("/categoria", func(c *gin.Context){
+		controllers.GetCategorias(db, c)
+	})
+	r.GET("/pontuacao", func(c *gin.Context){
+		controllers.GetNomeEPontuacao(db, c)
+	})
+	r.GET("/pontuacaoaluno", func(c *gin.Context){
+		controllers.GetPontuacaoPorAluno(db,c)
+	})
+	r.GET("/turmas", func(c *gin.Context){
+		controllers.GetTurmas(db, c)
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+	r.GET("/", func(c *gin.Context){
+
+	})
+
+
+
+
+
 	// ROTAS VALIDACAO DE EMAIL (E ENVIO DE SENHA)
 	r.GET("/confirmar", func(c *gin.Context) {
 		controllers.ValidaUsuario(db, c)
