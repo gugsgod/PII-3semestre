@@ -3,12 +3,12 @@ package controllers
 import (
 	"backend/models"
 	"backend/services"
-	"bcrypt"
 	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang-jwt/jwt/v5"
 	_ "github.com/joho/godotenv/autoload"
+	"golang.org/x/crypto/bcrypt"
 	"strings"
 )
 

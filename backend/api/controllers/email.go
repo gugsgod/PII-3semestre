@@ -3,11 +3,12 @@ package controllers
 import (
 	"backend/services"
 	"database/sql"
+	"net/http"
+	"sync"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
 	"golang.org/x/crypto/bcrypt"
-	"net/http"
-	"sync"
 )
 
 var (
@@ -19,7 +20,6 @@ var (
 func EnviaEmailDeValidacao(c *gin.Context) {
 	type Requisicao struct {
 		Email string `json:"email"`
-		Nome  string `json:"nome"`
 	}
 	var req Requisicao
 	if err := c.BindJSON(&req); err != nil {
