@@ -4,7 +4,6 @@ import(
 	"net/http"
 	"database/sql"
 	"backend/database"
-	"backend/models"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +12,7 @@ func GetTurmas(db *sql.DB, c *gin.Context){
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao buscar turmas"
+			"error":"erro ao buscar turmas",
 		})
 		return
 	}
