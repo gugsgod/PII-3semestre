@@ -2,7 +2,7 @@ package controllers
 
 import(
 //	"net/http"
-	"backend/api/models"
+	"backend/models"
 	"github.com/gin-gonic/gin"
 )
 

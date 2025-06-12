@@ -3,9 +3,9 @@ package controllers
 import(
 	"database/sql"
 	"net/http"
-	"backend/api/models"
-	"backend/api/database"
+	"backend/database"
 	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 // GET todos os alunos
@@ -14,7 +14,7 @@ func GetAlunos(db *sql.DB, c *gin.Context){
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao pegar os dados alunos"
+			"error":"erro ao pegar os dados alunos",
 		})
 		return
 	}
@@ -24,12 +24,20 @@ func GetAlunos(db *sql.DB, c *gin.Context){
 
 // GET alunos por turma
 func GetAlunosTurma(db *sql.DB, c *gin.Context){
-	turma := c.Param("turma")
-
+	param := c.Param("turma")
+	
+	// converte string em int
+	turma , err := strconv.Atoi(param)
+    if err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": "ID inválido"})
+        return
+    }
+	
+	//ativa func da database
 	sliceNomes, err := database.AlunosTurma(db, turma)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao pegar os dados alunos de uma turma especifica"
+			"error":"erro ao pegar os dados alunos de uma turma especifica",
 		})
 		return
 	}

@@ -3,17 +3,16 @@ package controllers
 import(
 	"database/sql"
 	"net/http"
-	"backend/api/models"
-	"backend/api/database"
+	"backend/database"
 	"github.com/gin-gonic/gin"
 )
 
 func GetAtividades(db *sql.DB, c *gin.Context){
-	sliceAtividades, err = database.Atividades(db)
+	sliceAtividades, err := database.Atividades(db)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao buscar atividades"
+			"error":"erro ao buscar atividades",
 		})
 		return
 	}
@@ -22,11 +21,12 @@ func GetAtividades(db *sql.DB, c *gin.Context){
 
 func GetAtividadesPorTurma(db *sql.DB, c *gin.Context){
 	turma := c.Param("turma")
-	sliceAtividades, err = database.AtividadesTurma(db, turma)
+
+	sliceAtividades, err := database.AtividadesTurma(db, turma)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao buscar atividades por turma"
+			"error":"erro ao buscar atividades por turma",
 		})
 		return
 	}

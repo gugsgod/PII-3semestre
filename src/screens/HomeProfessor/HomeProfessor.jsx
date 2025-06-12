@@ -48,7 +48,7 @@ function HomeProfessor() {
             <Navbar onClick={handleLogout}/>
 
             <div className="professor-background flex justify-center items-center min-h-[80vh]">
-                <div className="flex flex-wrap justify-center items-center gap-14 w-full max-w-2-[1280px] px-2">
+                <div className="flex flex-wrap justify-center items-center gap-28 w-full max-w-2-[1280px] px-2">
                     <Card icon={icon1} label={"Atribuir Pontos"} onClick={() => navigate("/TelainicialAtribuirPontos")} size="small"/>
                     <Card icon={icon2} label={"Ranking"} onClick={() => navigate("/Ranking")} size="small"/>
                     <Card icon={icon3} label={"Categorias de Pontuação"} onClick={() => navigate("/CategoriasPontuacao")} size="small"/>

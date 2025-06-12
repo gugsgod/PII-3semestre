@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"backend/api/services"
+	"backend/services"
 	"database/sql"
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
+	"golang.org/x/crypto/bcrypt"
 	"net/http"
 	"sync"
 )
@@ -47,8 +48,16 @@ func ValidaUsuario(db *sql.DB, c *gin.Context) {
 	email, existe := tokens[token]
 	if existe {
 		verificados[email] = true
+
 		senhaGerada := services.GerarSenhaAleatoria()
-		//----------------------- SALVAR NO BANCO AQUI (INSERT)-----------------------
+
+		senhaHash, err := bcrypt.GenerateFromPassword([]byte(senhaGerada), bcrypt.DefaultCost)
+		if err != nil {
+			mu.Unlock()
+			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao gerar hash da senha"})
+			return
+		}
+
 		stmt, err := db.Prepare("UPDATE users SET senha = ? WHERE email = ?")
 		if err != nil {
 			mu.Unlock()
@@ -57,13 +66,12 @@ func ValidaUsuario(db *sql.DB, c *gin.Context) {
 		}
 		defer stmt.Close()
 
-		_, err = stmt.Exec(senhaGerada, email)
+		_, err = stmt.Exec(senhaHash, email)
 		if err != nil {
 			mu.Unlock()
 			c.JSON(http.StatusInternalServerError, gin.H{"erro": "Erro ao salvar usuário no banco"})
 			return
 		}
-		// ---------------------------------------------------
 		services.EnviarSenha(email, senhaGerada)
 		delete(tokens, token)
 	}

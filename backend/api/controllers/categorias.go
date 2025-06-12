@@ -3,8 +3,7 @@ package controllers
 import(
 	"net/http"
 	"database/sql"
-	"backend/api/database"
-	"backend/api/models"
+	"backend/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +12,7 @@ func GetCategorias(db *sql.DB, c *gin.Context){
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":"erro ao buscar categorias"
+			"error":"erro ao buscar categorias",
 		})
 		return
 	}

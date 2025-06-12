@@ -45,7 +45,7 @@ const GerenciarPessoas = () => {
         <div className="overflow-hidden">
             <Titulo titulo="Pessoas cadastradas" onClickBotao={handleVoltarClick} mostrarBotao={true} />
             <div className="gerenciar-page">
-                <div className="flex justify-center gap-10">
+                <div className="flex justify-center gap-20">
                     <Pessoas
                         titulo="Alunos Cadastrados"
                         nome1="Nicole Mascaretti"
