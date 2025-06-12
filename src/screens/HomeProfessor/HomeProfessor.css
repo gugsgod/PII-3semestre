@@ -17,9 +17,4 @@
   z-index: -1;
 }
 
-.card-grid {
-  display: flex;
-  gap: 100px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
