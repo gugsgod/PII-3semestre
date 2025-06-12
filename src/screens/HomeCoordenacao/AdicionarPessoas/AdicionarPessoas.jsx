@@ -13,15 +13,12 @@ function AdicionarPessoas() {
     const [turmasSelecionadas, setTurmasSelecionadas] = useState([]);
     const [erro, setErro] = useState("");
 
-    // Opções de turmas conforme a imagem
     const opcoesTurmas = [
         "9° Ano",
         "1° Ensino Médio",
         "2° Ensino Médio",
         "3° Ensino Médio"
-
     ];
-
 
     // useEffect(() => {
     //     fetchAutomatico("http://localhost:8080/jwtcoordenacao")
@@ -36,19 +33,14 @@ function AdicionarPessoas() {
     //             console.error("Erro:", err);
     //             alert("Acesso não autorizado");
     //             navigate("/");
-
     //         });
     // }, []);
+
     const validarEmail = (email) => {
         return (
             email.endsWith("@p4ed.com") ||
             email.endsWith("@sistemapoliedro.com.br")
         );
-    };
-
-    const emailExiste = (email) => {
-        const pessoas = JSON.parse(localStorage.getItem("pessoas") || "[]");
-        return pessoas.some((p) => p.email.toLowerCase() === email.toLowerCase());
     };
 
     const handleTurmaChange = (turma) => {
@@ -59,10 +51,9 @@ function AdicionarPessoas() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Verificações
         if (!nome || !email) {
             setErro("Nome e e-mail são obrigatórios.");
             return;
@@ -73,42 +64,50 @@ function AdicionarPessoas() {
             return;
         }
 
-        if (emailExiste(email)) {
-            setErro("Este e-mail já está cadastrado.");
-            return;
+        try {
+            const response = await fetch("http://localhost:8080/usuarios", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    turmas: atribuirTurma ? turmasSelecionadas : []
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                setErro(errorData.message || "Erro ao cadastrar pessoa.");
+                return;
+            }
+
+            // Limpa o formulário
+            setNome("");
+            setEmail("");
+            setAtribuirTurma(false);
+            setTurmasSelecionadas([]);
+            setErro("");
+
+            alert("Pessoa cadastrada com sucesso!");
+        } catch (err) {
+            console.error("Erro ao cadastrar:", err);
+            setErro("Erro na comunicação com o servidor.");
         }
-
-        // Salvar (simulação!!!)
-        const novaPessoa = {
-            nome,
-            email,
-            atribuirTurma,
-            turmas: atribuirTurma ? turmasSelecionadas : []
-        };
-        const pessoas = JSON.parse(localStorage.getItem("pessoas") || "[]");
-        pessoas.push(novaPessoa);
-        localStorage.setItem("pessoas", JSON.stringify(pessoas));
-
-        // Limpar formulário e erro
-        setNome("");
-        setEmail("");
-        setAtribuirTurma(false);
-        setTurmasSelecionadas([]);
-        setErro("");
-
-        alert("Pessoa cadastrada com sucesso!");
     };
+
     const handleVoltarClick = () => {
         localStorage.removeItem('turmaSelecionada');
         navigate('/coordenacao');
     }
+
     return (
         <div className="adicionar-page">
             <div className="ms-4 mt-4 flex justify-start text-center p-1">
                 <button className="absolute top-4 right-4 bg-[#D9D9D9] rounded-2xl p-1 w-24 shadow-lg hover:text-white" onClick={handleVoltarClick}>Voltar</button>
             </div>
             <div className="w-full max-w-xl bg-white rounded-3xl shadow-lg">
-                {/*Título*/}
                 <div className="bg-gray-200 rounded-t-3xl px-6 py-4">
                     <h1 className="text-center text-xl text-gray-800">
                         Adicionar pessoas
@@ -154,7 +153,6 @@ function AdicionarPessoas() {
                         </label>
                     </div>
 
-                    {/* Seção de seleção de turmas - aparece apenas se "Atribuir turma" estiver marcado */}
                     {atribuirTurma && (
                         <div className="mt-4 pl-4 border-l-2 border-gray-200">
                             <h3 className="text-sm font-medium text-gray-700 mb-2">Selecionar turmas:</h3>
